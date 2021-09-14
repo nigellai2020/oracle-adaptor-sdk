@@ -34,7 +34,13 @@ async function deploy(contractName, args) {
 }
 
 async function run() {
+    // ====================================================================================================
     // private testnet
+
+    // let wbnb = await deploy("WETH9");
+    // let busd = await deploy("MockERC20", ["BUSD", "BUSD", "1000000000000000000000000000000000000", "0", 18]);
+    // let usdt = await deploy("MockERC20", ["USDT", "USDT", "1000000000000000000000000000000000000", "0", 18]);
+
     // Mock Chainlink
     // constructor(uint256 _decimals, string memory _description, uint256 _version)
     // let wbnbOracle = await deploy("MockV3Aggregator", ["BNB/USD", "8", ethers.utils.parseUnits("374.87918563", 8)]);
@@ -50,14 +56,16 @@ async function run() {
     // let oracle = await deploy("OSWAP_OracleChainlinkPriceGuardFiatTestnet", [[wbnb, busd, usdt], [wbnbOracle, busdOracle, usdtOracle], factory, maxValue, deviation, true]);
 
 
+    // ====================================================================================================
     // binance testnet
     // constructor(address wbnb, address busd, address usdt, uint256 _maxValue, address _factory, uint256 _deviation) 
-    let address = await deploy("OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet", [wbnb, busd, usdt, factory, maxValue, deviation, true]);
+    // let oracle = await deploy("OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet", [wbnb, busd, usdt, factory, maxValue, deviation, true]);
 
 
+    // ====================================================================================================
     // binance mainnet
     // constructor(address _factory, uint256 _maxValue, uint256 _deviation)
-    // let address = await deploy("OSWAP_OracleChainlinkPriceGuardFiatBinance", [factory, maxValue, deviation, true]);
+    // let oracle = await deploy("OSWAP_OracleChainlinkPriceGuardFiatBinance", [factory, maxValue, deviation, true]);
 
 
     console.log(oracle);

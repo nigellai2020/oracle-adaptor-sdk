@@ -1,0 +1,8 @@
+node_modules
+package-lock.json
+contracts
+build
+
+#Hardhat files
+cache
+artifacts

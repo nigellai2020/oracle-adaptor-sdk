@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node tools/compile 0.6.11 contracts build",
+    "build": "node tools/compile 0.6.11 contracts-test build \"{\\\"\\\":\\\"/../\\\"}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

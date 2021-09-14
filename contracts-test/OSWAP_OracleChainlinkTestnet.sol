@@ -92,18 +92,29 @@ contract OSWAP_OracleChainlinkFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBas
 
         // USD based
         // priceFeedAddresses[ada] = 0x5e66a1775BbC249b5D51C13d29245522582E671C; // ADA
+        // priceFeedAddresses[bake] = 0xbe75E0725922D78769e3abF0bcb560d1E2675d5d; // BAKE
         // priceFeedAddresses[bch] = 0x887f177CBED2cf555a64e7bF125E1825EB69dB82; // BCH
         priceFeedAddresses[wbnb] = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526; // BNB
         // priceFeedAddresses[btc] = 0x5741306c21795FdCBb9b265Ea0255F499DFe515C; // BTC
         priceFeedAddresses[busd] = 0x9331b55D9830EF609A2aBCfAc0FBCE050A52fdEa; // BUSD
+        // priceFeedAddresses[cake] = 0x81faeDDfeBc2F8Ac524327d70Cf913001732224C; // CAKE
+        // priceFeedAddresses[cream] = 0xB8eADfD8B78aDA4F85680eD96e0f50e1B5762b0a; // CREAM
         // priceFeedAddresses[dai] = 0xE4eE17114774713d2De0eC0f035d4F7665fc025D; // DAI
+        // priceFeedAddresses[dodo] = 0x2939E0089e61C5c9493C2013139885444c73a398; // DODO
         // priceFeedAddresses[doge] = 0x963D5e7f285Cc84ed566C486c3c1bC911291be38; // DOGE
         // priceFeedAddresses[dot] = 0xEA8731FD0685DB8AeAde9EcAE90C4fdf1d8164ed; // DOT
+        // priceFeedAddresses[eqz] = 0x6C2441920404835155f33d88faf0545B895871b1; // EQZ
         // priceFeedAddresses[eth] = 0x143db3CEEfbdfe5631aDD3E50f7614B6ba708BA7; // ETH
         // priceFeedAddresses[fil] = 0x17308A18d4a50377A4E1C37baaD424360025C74D; // FIL
+        // priceFeedAddresses[front] = 0x101E51C0Bc2D2213a9b0c991A991958aAd3fF96A; // FRONT
+        // priceFeedAddresses[inj] = 0x58b299Fa027E1d9514dBbEeBA7944FD744553d61; // INJ
         // priceFeedAddresses[link] = 0x1B329402Cb1825C6F30A0d92aB9E2862BE47333f; // LINK
         // priceFeedAddresses[ltc] = 0x9Dcf949BCA2F4A8a62350E0065d18902eE87Dca3; // LTC
+        // priceFeedAddresses[matic] = 0x957Eb0316f02ba4a9De3D308742eefd44a3c1719; // MATIC
+        // priceFeedAddresses[reef] = 0x902fA2495a8c5E89F7496F91678b8CBb53226D06; // REEF
+        // priceFeedAddresses[sfp] = 0x4b531A318B0e44B549F3b2f824721b3D0d51930A; // SFP
         // priceFeedAddresses[sxp] = 0x678AC35ACbcE272651874E782DB5343F9B8a7D66; // SXP
+        // priceFeedAddresses[twt] = 0x7671d7EDb66E4C10d5FFaA6a0d8842B5d880F0B3; // TWT
         // priceFeedAddresses[usdc] = 0x90c069C4538adAc136E051052E14c1cD799C41B7; // USDC
         priceFeedAddresses[usdt] = 0xEca2605f0BCF2BA5966372C99837b1F182d3D620; // USDT
         // priceFeedAddresses[vai] = 0xdb398f7B5927b92ec52C0Ae5D3090DB147eAedA5; // VAI

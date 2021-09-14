@@ -2,6 +2,9 @@ node_modules
 package-lock.json
 contracts
 build
+tools/solcjs
+
+.vscode/
 
 #Hardhat files
 cache

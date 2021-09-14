@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node tools/compile 0.6.11 contracts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,10 +23,13 @@
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.3.0",
+    "axios": "^0.21.4",
     "chai": "^4.3.4",
     "ethereum-waffle": "^3.3.0",
     "ethers": "^5.1.4",
     "hardhat": "^2.2.1",
+    "mkdirp": "^0.5.5",
+    "solc": "^0.6.12",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   }

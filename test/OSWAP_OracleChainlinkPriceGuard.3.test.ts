@@ -38,7 +38,7 @@ describe('test', function() {
         let ERC20 = await ethers.getContractFactory('MockERC20');
         weth = await WETH9.deploy();
         await weth.deployed();
-        token1 = await ERC20.deploy("token1", "token1", 0, 0, 18);
+        token1 = await ERC20.deploy("token1", "token1", 0, 0, 6);
         await token1.deployed();
         token2 = await ERC20.deploy("token2", "token2", 0, 0, 18);
         await token2.deployed();
@@ -73,9 +73,9 @@ describe('test', function() {
         chainlink2 = await MockV3Aggregator.deploy("Chainlink2", 18, price2);
         await chainlink2.deployed();
 
-        await (BigNumber.from(weth.address).lt(token1.address) ? pairWethToken1.setReserves(price1, toWei("1")) : pairWethToken1.setReserves(toWei("1"), price1))
-        await (BigNumber.from(weth.address).lt(token2.address) ? pairWethToken2.setReserves(price2, toWei("1")) : pairWethToken1.setReserves(toWei("1"), price2))
-        await (BigNumber.from(token1.address).lt(token2.address) ? pairToken1Token2.setReserves(price2, price1) : pairToken1Token2.setReserves(price1, price2))
+        await (BigNumber.from(weth.address).lt(token1.address) ? pairWethToken1.setReserves(price1.mul(toWei("1", 12)), toWei("1")) : pairWethToken1.setReserves(toWei("1"), price1.mul(toWei("1", 12))));
+        await (BigNumber.from(weth.address).lt(token2.address) ? pairWethToken2.setReserves(price2, toWei("1")) : pairWethToken1.setReserves(toWei("1"), price2));
+        await (BigNumber.from(token1.address).lt(token2.address) ? pairToken1Token2.setReserves(price2, price1.mul(toWei("1", 12))) : pairToken1Token2.setReserves(price1.mul(toWei("1", 12)), price2));
 
         maxValue = toWei("50000");
         deviation = toWei("0.1");
@@ -88,7 +88,7 @@ describe('test', function() {
     describe('', function() {
         it ('', async function(){
             let result = await oracle.getRatio(weth.address, token1.address, 0, 0, "0x");
-            print(result);
+            // print(result);
             print(result.numerator.mul("1000000000000000000").div(result.denominator));
             // 300.00000000000003
         });

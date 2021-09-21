@@ -44,7 +44,7 @@ describe('OSWAP_OraclePriceGuard', function() {
         await weth.deployed();
         // token1 < weth < token2
         do {
-            token1 = await ERC20.deploy("token1", "token1", 0, 0, 18);
+            token1 = await ERC20.deploy("token1", "token1", 0, 0, 8);
             await token1.deployed();
         } while (!BigNumber.from(token1.address.toLowerCase()).lt(weth.address.toLowerCase()));
         do {

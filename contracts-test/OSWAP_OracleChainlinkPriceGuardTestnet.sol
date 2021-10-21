@@ -37,7 +37,6 @@ contract MockPriceGuardPair is IPair {
 }
 
 contract OSWAP_OracleChainlinkPriceGuardTestnet is OSWAP_OracleChainlinkTestnet, OSWAP_OracleChainlinkPriceGuardBase {
-    address constant bscWethPriceFeed = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526;
     constructor(address _weth, address wethPriceFeed, address[] memory _tokens, address[] memory _pricefeeds, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
         public 
         OSWAP_OracleChainlinkTestnet(_weth, _tokens, _pricefeeds)
@@ -54,12 +53,34 @@ contract OSWAP_OracleChainlinkPriceGuardTestnet is OSWAP_OracleChainlinkTestnet,
         return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
     }
 }
+contract OSWAP_OracleChainlinkPriceGuardKovan is OSWAP_OracleChainlinkKovan, OSWAP_OracleChainlinkPriceGuardBase {
+    address constant kovanWethPriceFeed = 0x9326BFA02ADD2366b30bacB125260Af641031331;
+    constructor(address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+        public
+        OSWAP_OracleChainlinkKovan(dai, usdc, usdt)
+        OSWAP_OracleChainlinkPriceGuardBase(kovanWethPriceFeed, _factory, _maxValue, _deviation, _useAmmPrice)
+    {}
+    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkBase, OSWAP_OracleChainlinkPriceGuardBase) returns (uint256 numerator, uint256 denominator) {
+        return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
+    }
+}
+contract OSWAP_OracleChainlinkPriceGuardBinanceTestnet is OSWAP_OracleChainlinkBinanceTestnet, OSWAP_OracleChainlinkPriceGuardBase {
+    address constant bscWethPriceFeed = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526;
+    constructor(address wbnb, address dai, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+        public
+        OSWAP_OracleChainlinkBinanceTestnet(wbnb, dai)
+        OSWAP_OracleChainlinkPriceGuardBase(bscWethPriceFeed, _factory, _maxValue, _deviation, _useAmmPrice)
+    {}
+    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkBase, OSWAP_OracleChainlinkPriceGuardBase) returns (uint256 numerator, uint256 denominator) {
+        return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
+    }
+}
 
 contract OSWAP_OracleChainlinkPriceGuardFiatTestnet is OSWAP_OracleChainlinkFiatTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
     constructor(address[] memory _tokens, address[] memory _pricefeeds, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
         public 
         OSWAP_OracleChainlinkFiatTestnet(_tokens, _pricefeeds)
-        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
     {
         uint256 length = _tokens.length;
         for (uint256 i = 0 ; i < length ; i++) {
@@ -74,22 +95,31 @@ contract OSWAP_OracleChainlinkPriceGuardFiatTestnet is OSWAP_OracleChainlinkFiat
         return OSWAP_OracleChainlinkFiatBase.isSupported(from, to);
     }
 }
+contract OSWAP_OracleChainlinkPriceGuardFiatKovan is OSWAP_OracleChainlinkFiatKovan, OSWAP_OracleChainlinkPriceGuardFiatBase {
+    constructor(address eth, address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+        public 
+        OSWAP_OracleChainlinkFiatKovan(eth, dai, usdt, usdc)
+        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
+    {
+        decimals[eth] = 18;
+        decimals[dai] = 18;
+        decimals[usdc] = 6;
+        decimals[usdt] = 6;
 
+    }
+    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (uint256 numerator, uint256 denominator) {
+        return OSWAP_OracleChainlinkPriceGuardFiatBase.getRatio(from, to, fromAmount, toAmount, payload);
+    }
+    function isSupported(address from, address to) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (bool supported) {
+        return OSWAP_OracleChainlinkPriceGuardFiatBase.isSupported(from, to);
+    }
+}
 contract OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBinanceTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
     constructor(address wbnb, address busd, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
         public 
         OSWAP_OracleChainlinkFiatBinanceTestnet(wbnb, busd, usdt)
-        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
     {
-        // Using the list of Chainlink symbol to address from 
-        // https://docs.chain.link/docs/binance-smart-chain-addresses
-        // and token list from 
-        // https://github.com/pancakeswap/pancake-swap-interface/blob/master/src/constants/token/pancakeswap.json
-
-        // USD based
-        priceFeedAddresses[wbnb] = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526; // BNB
-        priceFeedAddresses[busd] = 0x9331b55D9830EF609A2aBCfAc0FBCE050A52fdEa; // BUSD
-        priceFeedAddresses[usdt] = 0xEca2605f0BCF2BA5966372C99837b1F182d3D620; // USDT
         decimals[wbnb] = 18;
         decimals[busd] = 18;
         decimals[usdt] = 6;

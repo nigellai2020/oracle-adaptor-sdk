@@ -226,8 +226,11 @@ abstract contract OSWAP_OracleChainlinkBase is IOSWAP_OracleAdaptor {
     uint256 constant WEI = 10**DECIMALS;
     uint256 constant WEI_SQ = 10**(DECIMALS*2);
 
-    address WETH;
+    address public immutable WETH;
 
+    constructor(address _weth) public {
+        WETH = _weth;
+    }
     mapping (address => address) public priceFeedAddresses;
 
     uint8 public chainlinkDeicmals = 18;
@@ -295,8 +298,10 @@ abstract contract OSWAP_OracleChainlinkBase is IOSWAP_OracleAdaptor {
 
 pragma solidity =0.6.11;
 abstract contract OSWAP_OracleChainlinkFiatBase is OSWAP_OracleChainlinkBase {
-    constructor() public {
-        WETH = address(0);
+    constructor() 
+        // OSWAP_OracleChainlinkBase(address(0)) 
+        public 
+    {
         chainlinkDeicmals = 8;
     }
     function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override virtual returns (uint256 numerator, uint256 denominator) {
@@ -317,13 +322,14 @@ abstract contract OSWAP_OracleChainlinkFiatBase is OSWAP_OracleChainlinkBase {
 
 pragma solidity =0.6.11;
 contract OSWAP_OracleChainlinkFiatBinance is OSWAP_OracleChainlinkFiatBase {
-    constructor() public {
-        WETH = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;
+    constructor() OSWAP_OracleChainlinkBase(address(0)) public {
+
         // Using the list of Chainlink symbol to address from 
         // https://docs.chain.link/docs/binance-smart-chain-addresses
         // and token list from 
         // https://github.com/pancakeswap/pancake-swap-interface/blob/master/src/constants/token/pancakeswap.json
 
+        priceFeedAddresses[0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c] = 0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE; // BNB
         priceFeedAddresses[0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47] = 0xa767f745331D267c7751297D982b050c93985627; // ADA
         priceFeedAddresses[0x0Eb3a705fc54725037CC9e008bDede697f62F335] = 0xb056B7C804297279A9a673289264c17E6Dc6055d; // ATOM
         priceFeedAddresses[0xa184088a740c695E156F91f5cC086a06bb78b827] = 0x88E71E6520E5aC75f5338F5F0c9DeD9d4f692cDA; // AUTO
@@ -567,13 +573,6 @@ pragma solidity =0.6.11;
 abstract contract OSWAP_OracleChainlinkPriceGuardFiatBase is OSWAP_OracleChainlinkPriceGuardBase, OSWAP_OracleChainlinkFiatBase {
 	using SafeMath for uint256;
 
-    constructor(address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
-        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
-        // OSWAP_OracleChainlinkFiatBase() // prevent "Base constructor arguments given twice."
-    {
-    }
-
     function _getRatio(address from, address to, uint256 fromAmount, uint256 toAmount) internal override view returns (uint256 usdAmount, uint256 numerator, uint256 denominator, uint112 reserve0, uint112 reserve1) {
         require(from != to, "OSWAP: from and to addresses are the same");
         require(from != address(0) && to != address(0), "OSWAP: Oracle: Invalid address");
@@ -618,10 +617,11 @@ abstract contract OSWAP_OracleChainlinkPriceGuardFiatBase is OSWAP_OracleChainli
 pragma solidity =0.6.11;
 contract OSWAP_OracleChainlinkPriceGuardFiatBinance is OSWAP_OracleChainlinkFiatBinance, OSWAP_OracleChainlinkPriceGuardFiatBase {
     constructor(address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice)
-        public 
         OSWAP_OracleChainlinkFiatBinance()
-        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _returnAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _returnAmmPrice)
+        public 
     {
+        decimals[0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c] = 18; // WBNB
         decimals[0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47] = 18; // ADA
         decimals[0x0Eb3a705fc54725037CC9e008bDede697f62F335] = 18; // ATOM
         decimals[0xa184088a740c695E156F91f5cC086a06bb78b827] = 18; // AUTO

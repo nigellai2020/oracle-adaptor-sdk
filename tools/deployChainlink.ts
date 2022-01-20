@@ -19,7 +19,7 @@ async function run() {
 
     var addressesDirectory = path.join(__dirname, "../addresses");
     if (!fs.existsSync(addressesDirectory)) {
-        await mkdirp(addressesDirectory, null);
+        await mkdirp(addressesDirectory);
     }
     var outputPath = path.join(__dirname, "../addresses/" + Config.network + ".json");
     var Address = fs.existsSync(outputPath) ? JSON.parse(fs.readFileSync(outputPath, 'utf8').trim() || "{}") : {};
@@ -53,15 +53,15 @@ async function run() {
                     });
                     break;
                 default: {
-                    var MOCK_CL_DAI = await new OA2.MockChainlink(wallet).deploy({decimals:18, description:"DAI", version:1});
+                    var MOCK_CL_DAI = await (chainlink = new OA2.MockChainlink(wallet)).deploy({decimals:18, description:"DAI", version:1});
                     var receipt = await chainlink.setRoundData({roundId:1, answer:Utils.toDecimals((1/1600).toString().substring(0,20)), startedAt:1, updatedAt:1, answeredInRound:1});
                     Address["MockChainlinkDAI"] = MOCK_CL_DAI;
 
-                    var MOCK_CL_USDC = await new OA2.MockChainlink(wallet).deploy({decimals:18, description:"USDC", version:1});
+                    var MOCK_CL_USDC = await (chainlink = new OA2.MockChainlink(wallet)).deploy({decimals:18, description:"USDC", version:1});
                     var receipt = await chainlink.setRoundData({roundId:1, answer:Utils.toDecimals((1/1610).toString().substring(0,20)), startedAt:1, updatedAt:1, answeredInRound:1});
                     Address["MockChainlinkUSDC"] = MOCK_CL_USDC;
 
-                    var MOCK_CL_USDT = await new OA2.MockChainlink(wallet).deploy({decimals:18, description:"USDT", version:1});
+                    var MOCK_CL_USDT = await (chainlink = new OA2.MockChainlink(wallet)).deploy({decimals:18, description:"USDT", version:1});
                     var receipt = await chainlink.setRoundData({roundId:1, answer:Utils.toDecimals((1/1590).toString().substring(0,20)), startedAt:1, updatedAt:1, answeredInRound:1});
                     Address["MockChainlinkUSDT"] = MOCK_CL_USDT;
 

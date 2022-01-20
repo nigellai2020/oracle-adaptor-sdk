@@ -191,3 +191,16 @@ contract OSWAP_OracleChainlinkFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBas
     }
 }
 
+contract OSWAP_OracleChainlinkFiatAvalancheTestnet is OSWAP_OracleChainlinkFiatBase {
+    constructor(address wavax, address usdt) 
+        OSWAP_OracleChainlinkBase(address(0)) 
+        public 
+    {
+        // Using the list of Chainlink symbol to address from 
+        // https://docs.chain.link/docs/avalanche-price-feeds
+
+        // USD based
+        priceFeedAddresses[wavax] = 0x5498BB86BC934c8D34FDA08E81D444153d0D06aD; // AVAX
+        priceFeedAddresses[usdt] = 0x7898AcCC83587C3C55116c5230C17a6Cd9C71bad; // USDT
+    }
+}

@@ -132,3 +132,20 @@ contract OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet is OSWAP_OracleChainl
         return OSWAP_OracleChainlinkPriceGuardFiatBase.isSupported(from, to);
     }
 }
+
+contract OSWAP_OracleChainlinkPriceGuardFiatAvalancheTestnet is OSWAP_OracleChainlinkFiatAvalancheTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
+    constructor(address wavax, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+        public 
+        OSWAP_OracleChainlinkFiatAvalancheTestnet(wavax, usdt)
+        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
+    {
+        decimals[wavax] = 18;
+        decimals[usdt] = 6;
+    }
+    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (uint256 numerator, uint256 denominator) {
+        return OSWAP_OracleChainlinkPriceGuardFiatBase.getRatio(from, to, fromAmount, toAmount, payload);
+    }
+    function isSupported(address from, address to) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (bool supported) {
+        return OSWAP_OracleChainlinkPriceGuardFiatBase.isSupported(from, to);
+    }
+}

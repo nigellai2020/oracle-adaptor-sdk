@@ -1,30 +1,40 @@
 {
-  "name": "oracle-adaptor",
-  "version": "1.0.0",
+  "name": "@openswapdex/oracle-adaptor-sdk",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node tools/compile 0.6.11 contracts-test build \"{\\\"\\\":\\\"/../\\\"}\"",
+    "build": "eth-wallet-build 0.6.11 node_modules/@openswapdex/oracle-adaptor-core/contracts bin/contracts src/contracts",
+    "build:testContracts": "eth-wallet-build 0.6.11 contracts-test test/bin test/src/contracts",
+    "build:lib": "tsc && node esbuild.bundle",
+    "_build": "node tools/compile 0.6.11 contracts-test build \"{\\\"\\\":\\\"/../\\\"}\"",
+    "_build:testContracts": "eth-wallet-build 0.6.11 test/contracts test/bin test/src/contracts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ijstech/oracle-adaptor.git"
+    "url": "git+https://github.com/openswapdex/oracle-adaptor-sdk.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ijstech/oracle-adaptor/issues"
+    "url": "https://github.com/openswapdex/oracle-adaptor-sdk/issues"
   },
-  "homepage": "https://github.com/ijstech/oracle-adaptor#readme",
+  "homepage": "https://github.com/openswapdex/oracle-adaptor-sdk#readme",
+  "dependencies": {
+    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git#0.1.9",
+    "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@types/chai": "^4.2.18",
+    "@types/mkdirp": "^1.0.2",
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.3.0",
     "axios": "^0.21.4",
     "chai": "^4.3.4",
+    "esbuild": "^0.14.11",
     "ethereum-waffle": "^3.3.0",
     "ethers": "^5.1.4",
     "hardhat": "^2.2.1",

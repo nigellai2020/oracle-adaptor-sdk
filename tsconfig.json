@@ -1,9 +1,21 @@
-{
+{ 
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+      "target": "es2017",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "removeComments": true,
+      "declaration": true,
+      "declarationDir": "types",
+      "outDir": "lib",
+      "baseUrl": "."
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+      "node_modules",            
+      "test",
+      "src/tradeVault.ts",
+      "src/tradeVault2.ts"
+  ]
 }

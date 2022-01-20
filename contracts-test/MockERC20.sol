@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity =0.6.11;
 
-import '../contracts/interfaces/IERC20.sol';
-import '../contracts/libraries/SafeMath.sol';
+import '@openswapdex/oracle-adaptor-core/contracts/interfaces/IERC20.sol';
+import '@openswapdex/oracle-adaptor-core/contracts/libraries/SafeMath.sol';
 
 contract MockERC20 is IERC20 {
 	using SafeMath for uint256;

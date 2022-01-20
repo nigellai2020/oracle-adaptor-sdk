@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity 0.6.11;
-
+/*
 import "../contracts/OSWAP_OracleChainlinkFiatBase.sol";
 import "../contracts/OSWAP_OracleChainlinkPriceGuardBinance.sol";
 import "../contracts/OSWAP_OracleChainlinkPriceGuardBase.sol";
@@ -31,3 +31,4 @@ import "../contracts/OSWAP_OracleChainlink.sol";
 import "../contracts/OSWAP_OracleChained.sol";
 import "../contracts/OSWAP_OracleUnity.sol";
 import "../contracts/OSWAP_OracleSigned.sol";
+*/

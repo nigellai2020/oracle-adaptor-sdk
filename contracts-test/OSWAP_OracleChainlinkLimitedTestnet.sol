@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity =0.6.11;
 
-import "../contracts/OSWAP_OracleChainlinkLimitedBase.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkLimitedBase.sol";
 
 
 contract MockLimitedFactory is IFactory {

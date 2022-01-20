@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.11;
 
-import "../contracts/interfaces/AggregatorV3Interface.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/interfaces/AggregatorV3Interface.sol";
 
 interface AggregatorInterface {
   function latestAnswer() external view returns (int256);

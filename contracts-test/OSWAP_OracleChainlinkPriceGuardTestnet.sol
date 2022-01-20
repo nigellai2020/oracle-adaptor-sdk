@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity =0.6.11;
 
-import "../contracts/interfaces/IERC20.sol";
-import "../contracts/interfaces/IFactory.sol";
-import "../contracts/interfaces/IPair.sol";
-import "../contracts/OSWAP_OracleChainlinkPriceGuardBase.sol";
-import "../contracts/OSWAP_OracleChainlinkPriceGuardFiatBase.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/interfaces/IERC20.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/interfaces/IFactory.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/interfaces/IPair.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkPriceGuardBase.sol";
+import "@openswapdex/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkPriceGuardFiatBase.sol";
 import "./OSWAP_OracleChainlinkTestnet.sol";
 
 contract MockPriceGuardFactory is IFactory {

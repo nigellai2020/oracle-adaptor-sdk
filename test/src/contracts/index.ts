@@ -12,12 +12,14 @@ export { OSWAP_OracleChainlinkLimitedTestnet } from './OSWAP_OracleChainlinkLimi
 export { MockPriceGuardFactory } from './MockPriceGuardFactory';
 export { MockPriceGuardPair } from './MockPriceGuardPair';
 export { OSWAP_OracleChainlinkPriceGuardBinanceTestnet } from './OSWAP_OracleChainlinkPriceGuardBinanceTestnet';
+export { OSWAP_OracleChainlinkPriceGuardFiatAvalancheTestnet } from './OSWAP_OracleChainlinkPriceGuardFiatAvalancheTestnet';
 export { OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet } from './OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet';
 export { OSWAP_OracleChainlinkPriceGuardFiatKovan } from './OSWAP_OracleChainlinkPriceGuardFiatKovan';
 export { OSWAP_OracleChainlinkPriceGuardFiatTestnet } from './OSWAP_OracleChainlinkPriceGuardFiatTestnet';
 export { OSWAP_OracleChainlinkPriceGuardKovan } from './OSWAP_OracleChainlinkPriceGuardKovan';
 export { OSWAP_OracleChainlinkPriceGuardTestnet } from './OSWAP_OracleChainlinkPriceGuardTestnet';
 export { OSWAP_OracleChainlinkBinanceTestnet } from './OSWAP_OracleChainlinkBinanceTestnet';
+export { OSWAP_OracleChainlinkFiatAvalancheTestnet } from './OSWAP_OracleChainlinkFiatAvalancheTestnet';
 export { OSWAP_OracleChainlinkFiatBinanceTestnet } from './OSWAP_OracleChainlinkFiatBinanceTestnet';
 export { OSWAP_OracleChainlinkFiatKovan } from './OSWAP_OracleChainlinkFiatKovan';
 export { OSWAP_OracleChainlinkFiatTestnet } from './OSWAP_OracleChainlinkFiatTestnet';

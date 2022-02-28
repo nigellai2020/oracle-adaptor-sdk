@@ -80,7 +80,7 @@ describe('test', function() {
         maxValue = toWei("50000");
         deviation = toWei("0.1");
 
-        let OSWAP_OracleChainlinkPriceGuardTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkPriceGuardTestnet');
+        let OSWAP_OracleChainlinkPriceGuardTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkPriceGuardGeneric');
         oracle = await OSWAP_OracleChainlinkPriceGuardTestnet.deploy(weth.address, chainlink0.address, [token1.address, token2.address], [chainlink1.address, chainlink2.address], factory.address, maxValue, deviation, false);
         await oracle.deployed();
     });

@@ -26,7 +26,7 @@ describe('OSWAP_OraclePair 4', function () {
         WETH9 = await ethers.getContractFactory('WETH9');
         ERC20 = await ethers.getContractFactory('MockERC20');
         MockLimitedFactory = await ethers.getContractFactory('MockLimitedFactory');
-        OSWAP_OracleChainlinkLimitedTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkLimitedTestnet');
+        OSWAP_OracleChainlinkLimitedTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkLimitedGeneric');
         weth = await (await WETH9.deploy()).deployed();
         token = await (await ERC20.deploy("token1", "token1", 0, 0, 18)).deployed();
     });

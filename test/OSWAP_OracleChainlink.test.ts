@@ -42,7 +42,7 @@ describe('test', function() {
         chainlink2 = await MockV3Aggregator.deploy("Chainlink2", 18, price2);
         await chainlink2.deployed();
 
-        let OSWAP_OracleChainlinkTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkTestnet');
+        let OSWAP_OracleChainlinkTestnet = await ethers.getContractFactory('OSWAP_OracleChainlinkGeneric');
         oracle = await OSWAP_OracleChainlinkTestnet.deploy(weth.address, [token1.address, token2.address], [chainlink1.address, chainlink2.address]);
         await oracle.deployed();
     });

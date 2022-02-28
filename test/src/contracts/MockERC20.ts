@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/MockERC20.json");
 
 export class MockERC20 extends Contract{
@@ -9,42 +9,39 @@ export class MockERC20 extends Contract{
         return this._deploy(params.symbol,params.name,Utils.toString(params.initialSupply),Utils.toString(params.cap),Utils.toString(params.decimals));
     }
     parseApprovalEvent(receipt: TransactionReceipt): MockERC20.ApprovalEvent[]{
-        let events = this.parseEvents(receipt, "Approval");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                owner: result.owner,
-                spender: result.spender,
-                value: new BigNumber(result.value)
-            };
-        });
+        return this.parseEvents(receipt, "Approval").map(e=>this.decodeApprovalEvent(e));
+    }
+    decodeApprovalEvent(event: Event): MockERC20.ApprovalEvent{
+        let result = event.data;
+        return {
+            owner: result.owner,
+            spender: result.spender,
+            value: new BigNumber(result.value),
+            _event: event
+        };
     }
     parseAuthEvent(receipt: TransactionReceipt): MockERC20.AuthEvent[]{
-        let events = this.parseEvents(receipt, "Auth");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                account: result.account,
-                auth: new BigNumber(result.auth)
-            };
-        });
+        return this.parseEvents(receipt, "Auth").map(e=>this.decodeAuthEvent(e));
+    }
+    decodeAuthEvent(event: Event): MockERC20.AuthEvent{
+        let result = event.data;
+        return {
+            account: result.account,
+            auth: new BigNumber(result.auth),
+            _event: event
+        };
     }
     parseTransferEvent(receipt: TransactionReceipt): MockERC20.TransferEvent[]{
-        let events = this.parseEvents(receipt, "Transfer");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                from: result.from,
-                to: result.to,
-                value: new BigNumber(result.value)
-            };
-        });
+        return this.parseEvents(receipt, "Transfer").map(e=>this.decodeTransferEvent(e));
+    }
+    decodeTransferEvent(event: Event): MockERC20.TransferEvent{
+        let result = event.data;
+        return {
+            from: result.from,
+            to: result.to,
+            value: new BigNumber(result.value),
+            _event: event
+        };
     }
     async allowance(params:{param1:string,param2:string}): Promise<BigNumber>{
         let result = await this.methods('allowance',params.param1,params.param2);
@@ -116,7 +113,7 @@ export class MockERC20 extends Contract{
     }
 }
 export module MockERC20{
-    export interface ApprovalEvent {_eventName:string,_address:string,_transactionHash:string,owner:string,spender:string,value:BigNumber}
-    export interface AuthEvent {_eventName:string,_address:string,_transactionHash:string,account:string,auth:BigNumber}
-    export interface TransferEvent {_eventName:string,_address:string,_transactionHash:string,from:string,to:string,value:BigNumber}
+    export interface ApprovalEvent {owner:string,spender:string,value:BigNumber,_event:Event}
+    export interface AuthEvent {account:string,auth:BigNumber,_event:Event}
+    export interface TransferEvent {from:string,to:string,value:BigNumber,_event:Event}
 }

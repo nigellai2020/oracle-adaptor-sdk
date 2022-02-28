@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/CertiKSecurityOracle.json");
 
 export class CertiKSecurityOracle extends Contract{
@@ -9,65 +9,60 @@ export class CertiKSecurityOracle extends Contract{
         return this._deploy();
     }
     parseBatchResultUpdateEvent(receipt: TransactionReceipt): CertiKSecurityOracle.BatchResultUpdateEvent[]{
-        let events = this.parseEvents(receipt, "BatchResultUpdate");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                length: new BigNumber(result.length)
-            };
-        });
+        return this.parseEvents(receipt, "BatchResultUpdate").map(e=>this.decodeBatchResultUpdateEvent(e));
+    }
+    decodeBatchResultUpdateEvent(event: Event): CertiKSecurityOracle.BatchResultUpdateEvent{
+        let result = event.data;
+        return {
+            length: new BigNumber(result.length),
+            _event: event
+        };
     }
     parseDefaultScoreChangedEvent(receipt: TransactionReceipt): CertiKSecurityOracle.DefaultScoreChangedEvent[]{
-        let events = this.parseEvents(receipt, "DefaultScoreChanged");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                score: new BigNumber(result.score)
-            };
-        });
+        return this.parseEvents(receipt, "DefaultScoreChanged").map(e=>this.decodeDefaultScoreChangedEvent(e));
+    }
+    decodeDefaultScoreChangedEvent(event: Event): CertiKSecurityOracle.DefaultScoreChangedEvent{
+        let result = event.data;
+        return {
+            score: new BigNumber(result.score),
+            _event: event
+        };
     }
     parseInitEvent(receipt: TransactionReceipt): CertiKSecurityOracle.InitEvent[]{
-        let events = this.parseEvents(receipt, "Init");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                defaultScore: new BigNumber(result.defaultScore)
-            };
-        });
+        return this.parseEvents(receipt, "Init").map(e=>this.decodeInitEvent(e));
+    }
+    decodeInitEvent(event: Event): CertiKSecurityOracle.InitEvent{
+        let result = event.data;
+        return {
+            defaultScore: new BigNumber(result.defaultScore),
+            _event: event
+        };
     }
     parseOwnershipTransferredEvent(receipt: TransactionReceipt): CertiKSecurityOracle.OwnershipTransferredEvent[]{
-        let events = this.parseEvents(receipt, "OwnershipTransferred");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                previousOwner: result.previousOwner,
-                newOwner: result.newOwner
-            };
-        });
+        return this.parseEvents(receipt, "OwnershipTransferred").map(e=>this.decodeOwnershipTransferredEvent(e));
+    }
+    decodeOwnershipTransferredEvent(event: Event): CertiKSecurityOracle.OwnershipTransferredEvent{
+        let result = event.data;
+        return {
+            previousOwner: result.previousOwner,
+            newOwner: result.newOwner,
+            _event: event
+        };
     }
     parseResultUpdateEvent(receipt: TransactionReceipt): CertiKSecurityOracle.ResultUpdateEvent[]{
-        let events = this.parseEvents(receipt, "ResultUpdate");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                target: result.target,
-                functionSignature: result.functionSignature,
-                score: new BigNumber(result.score),
-                expiration: new BigNumber(result.expiration)
-            };
-        });
+        return this.parseEvents(receipt, "ResultUpdate").map(e=>this.decodeResultUpdateEvent(e));
     }
-    async batchPushResult(params:{contractAddresses:string[],functionSignatures:string[],scores:number[]|BigNumber[],expirations:number[]|BigNumber[]}): Promise<TransactionReceipt>{
+    decodeResultUpdateEvent(event: Event): CertiKSecurityOracle.ResultUpdateEvent{
+        let result = event.data;
+        return {
+            target: result.target,
+            functionSignature: result.functionSignature,
+            score: new BigNumber(result.score),
+            expiration: new BigNumber(result.expiration),
+            _event: event
+        };
+    }
+    async batchPushResult(params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}): Promise<TransactionReceipt>{
         let result = await this.methods('batchPushResult',params.contractAddresses,params.functionSignatures,Utils.toString(params.scores),Utils.toString(params.expirations));
         return result;
     }
@@ -117,9 +112,9 @@ export class CertiKSecurityOracle extends Contract{
     }
 }
 export module CertiKSecurityOracle{
-    export interface BatchResultUpdateEvent {_eventName:string,_address:string,_transactionHash:string,length:BigNumber}
-    export interface DefaultScoreChangedEvent {_eventName:string,_address:string,_transactionHash:string,score:BigNumber}
-    export interface InitEvent {_eventName:string,_address:string,_transactionHash:string,defaultScore:BigNumber}
-    export interface OwnershipTransferredEvent {_eventName:string,_address:string,_transactionHash:string,previousOwner:string,newOwner:string}
-    export interface ResultUpdateEvent {_eventName:string,_address:string,_transactionHash:string,target:string,functionSignature:string,score:BigNumber,expiration:BigNumber}
+    export interface BatchResultUpdateEvent {length:BigNumber,_event:Event}
+    export interface DefaultScoreChangedEvent {score:BigNumber,_event:Event}
+    export interface InitEvent {defaultScore:BigNumber,_event:Event}
+    export interface OwnershipTransferredEvent {previousOwner:string,newOwner:string,_event:Event}
+    export interface ResultUpdateEvent {target:string,functionSignature:string,score:BigNumber,expiration:BigNumber,_event:Event}
 }

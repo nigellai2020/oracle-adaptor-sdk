@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/WETH9.json");
 
 export class WETH9 extends Contract{
@@ -9,54 +9,50 @@ export class WETH9 extends Contract{
         return this._deploy();
     }
     parseApprovalEvent(receipt: TransactionReceipt): WETH9.ApprovalEvent[]{
-        let events = this.parseEvents(receipt, "Approval");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                src: result.src,
-                guy: result.guy,
-                wad: new BigNumber(result.wad)
-            };
-        });
+        return this.parseEvents(receipt, "Approval").map(e=>this.decodeApprovalEvent(e));
+    }
+    decodeApprovalEvent(event: Event): WETH9.ApprovalEvent{
+        let result = event.data;
+        return {
+            src: result.src,
+            guy: result.guy,
+            wad: new BigNumber(result.wad),
+            _event: event
+        };
     }
     parseDepositEvent(receipt: TransactionReceipt): WETH9.DepositEvent[]{
-        let events = this.parseEvents(receipt, "Deposit");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                dst: result.dst,
-                wad: new BigNumber(result.wad)
-            };
-        });
+        return this.parseEvents(receipt, "Deposit").map(e=>this.decodeDepositEvent(e));
+    }
+    decodeDepositEvent(event: Event): WETH9.DepositEvent{
+        let result = event.data;
+        return {
+            dst: result.dst,
+            wad: new BigNumber(result.wad),
+            _event: event
+        };
     }
     parseTransferEvent(receipt: TransactionReceipt): WETH9.TransferEvent[]{
-        let events = this.parseEvents(receipt, "Transfer");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                src: result.src,
-                dst: result.dst,
-                wad: new BigNumber(result.wad)
-            };
-        });
+        return this.parseEvents(receipt, "Transfer").map(e=>this.decodeTransferEvent(e));
+    }
+    decodeTransferEvent(event: Event): WETH9.TransferEvent{
+        let result = event.data;
+        return {
+            src: result.src,
+            dst: result.dst,
+            wad: new BigNumber(result.wad),
+            _event: event
+        };
     }
     parseWithdrawalEvent(receipt: TransactionReceipt): WETH9.WithdrawalEvent[]{
-        let events = this.parseEvents(receipt, "Withdrawal");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                src: result.src,
-                wad: new BigNumber(result.wad)
-            };
-        });
+        return this.parseEvents(receipt, "Withdrawal").map(e=>this.decodeWithdrawalEvent(e));
+    }
+    decodeWithdrawalEvent(event: Event): WETH9.WithdrawalEvent{
+        let result = event.data;
+        return {
+            src: result.src,
+            wad: new BigNumber(result.wad),
+            _event: event
+        };
     }
     async allowance(params:{param1:string,param2:string}): Promise<BigNumber>{
         let result = await this.methods('allowance',params.param1,params.param2);
@@ -104,8 +100,8 @@ export class WETH9 extends Contract{
     }
 }
 export module WETH9{
-    export interface ApprovalEvent {_eventName:string,_address:string,_transactionHash:string,src:string,guy:string,wad:BigNumber}
-    export interface DepositEvent {_eventName:string,_address:string,_transactionHash:string,dst:string,wad:BigNumber}
-    export interface TransferEvent {_eventName:string,_address:string,_transactionHash:string,src:string,dst:string,wad:BigNumber}
-    export interface WithdrawalEvent {_eventName:string,_address:string,_transactionHash:string,src:string,wad:BigNumber}
+    export interface ApprovalEvent {src:string,guy:string,wad:BigNumber,_event:Event}
+    export interface DepositEvent {dst:string,wad:BigNumber,_event:Event}
+    export interface TransferEvent {src:string,dst:string,wad:BigNumber,_event:Event}
+    export interface WithdrawalEvent {src:string,wad:BigNumber,_event:Event}
 }

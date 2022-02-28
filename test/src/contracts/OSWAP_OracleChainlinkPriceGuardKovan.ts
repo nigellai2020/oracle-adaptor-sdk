@@ -1,12 +1,12 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/OSWAP_OracleChainlinkPriceGuardKovan.json");
 
 export class OSWAP_OracleChainlinkPriceGuardKovan extends Contract{
     constructor(wallet: Wallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
     }
-    deploy(params:{dai:string,usdc:string,usdt:string,factory:string,maxValue:number|BigNumber,deviation:number|BigNumber,useAmmPrice:boolean}): Promise<string>{
-        return this._deploy(params.dai,params.usdc,params.usdt,params.factory,Utils.toString(params.maxValue),Utils.toString(params.deviation),params.useAmmPrice);
+    deploy(params:{dai:string,usdc:string,usdt:string,factory:string,maxValue:number|BigNumber,deviation:number|BigNumber,returnAmmPrice:boolean}): Promise<string>{
+        return this._deploy(params.dai,params.usdc,params.usdt,params.factory,Utils.toString(params.maxValue),Utils.toString(params.deviation),params.returnAmmPrice);
     }
     async WETH(): Promise<string>{
         let result = await this.methods('WETH');
@@ -71,8 +71,8 @@ export class OSWAP_OracleChainlinkPriceGuardKovan extends Contract{
         let result = await this.methods('priceFeedAddresses',param1);
         return result;
     }
-    async useAmmPrice(): Promise<boolean>{
-        let result = await this.methods('useAmmPrice');
+    async returnAmmPrice(): Promise<boolean>{
+        let result = await this.methods('returnAmmPrice');
         return result;
     }
     async wethDecimals(): Promise<BigNumber>{

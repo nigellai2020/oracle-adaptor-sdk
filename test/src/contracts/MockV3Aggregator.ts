@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/MockV3Aggregator.json");
 
 export class MockV3Aggregator extends Contract{
@@ -9,30 +9,28 @@ export class MockV3Aggregator extends Contract{
         return this._deploy(params.description,Utils.toString(params.decimals),Utils.toString(params.initialAnswer));
     }
     parseAnswerUpdatedEvent(receipt: TransactionReceipt): MockV3Aggregator.AnswerUpdatedEvent[]{
-        let events = this.parseEvents(receipt, "AnswerUpdated");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                current: new BigNumber(result.current),
-                roundId: new BigNumber(result.roundId),
-                updatedAt: new BigNumber(result.updatedAt)
-            };
-        });
+        return this.parseEvents(receipt, "AnswerUpdated").map(e=>this.decodeAnswerUpdatedEvent(e));
+    }
+    decodeAnswerUpdatedEvent(event: Event): MockV3Aggregator.AnswerUpdatedEvent{
+        let result = event.data;
+        return {
+            current: new BigNumber(result.current),
+            roundId: new BigNumber(result.roundId),
+            updatedAt: new BigNumber(result.updatedAt),
+            _event: event
+        };
     }
     parseNewRoundEvent(receipt: TransactionReceipt): MockV3Aggregator.NewRoundEvent[]{
-        let events = this.parseEvents(receipt, "NewRound");
-        return events.map(result => {
-            return {
-                _eventName: result._eventName,
-                _address: result._address,
-                _transactionHash: result._transactionHash,
-                roundId: new BigNumber(result.roundId),
-                startedBy: result.startedBy,
-                startedAt: new BigNumber(result.startedAt)
-            };
-        });
+        return this.parseEvents(receipt, "NewRound").map(e=>this.decodeNewRoundEvent(e));
+    }
+    decodeNewRoundEvent(event: Event): MockV3Aggregator.NewRoundEvent{
+        let result = event.data;
+        return {
+            roundId: new BigNumber(result.roundId),
+            startedBy: result.startedBy,
+            startedAt: new BigNumber(result.startedAt),
+            _event: event
+        };
     }
     async decimals(): Promise<BigNumber>{
         let result = await this.methods('decimals');
@@ -96,6 +94,6 @@ export class MockV3Aggregator extends Contract{
     }
 }
 export module MockV3Aggregator{
-    export interface AnswerUpdatedEvent {_eventName:string,_address:string,_transactionHash:string,current:BigNumber,roundId:BigNumber,updatedAt:BigNumber}
-    export interface NewRoundEvent {_eventName:string,_address:string,_transactionHash:string,roundId:BigNumber,startedBy:string,startedAt:BigNumber}
+    export interface AnswerUpdatedEvent {current:BigNumber,roundId:BigNumber,updatedAt:BigNumber,_event:Event}
+    export interface NewRoundEvent {roundId:BigNumber,startedBy:string,startedAt:BigNumber,_event:Event}
 }

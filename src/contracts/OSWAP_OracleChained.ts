@@ -1,11 +1,11 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/contracts/OSWAP_OracleChained.json");
 
 export class OSWAP_OracleChained extends Contract{
     constructor(wallet: Wallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
     }
-    deploy(params:{from:string[],to:string[],count:number[]|BigNumber[],paths:string[],oracles:string[]}): Promise<string>{
+    deploy(params:{from:string[],to:string[],count:(number|BigNumber)[],paths:string[],oracles:string[]}): Promise<string>{
         return this._deploy(params.from,params.to,Utils.toString(params.count),params.paths,params.oracles);
     }
     async decimals(): Promise<BigNumber>{

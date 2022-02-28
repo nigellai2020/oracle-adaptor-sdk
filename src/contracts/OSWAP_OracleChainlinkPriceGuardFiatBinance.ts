@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.json");
 
 export class OSWAP_OracleChainlinkPriceGuardFiatBinance extends Contract{
@@ -67,8 +67,8 @@ export class OSWAP_OracleChainlinkPriceGuardFiatBinance extends Contract{
         let result = await this.methods('priceFeedAddresses',param1);
         return result;
     }
-    async useAmmPrice(): Promise<boolean>{
-        let result = await this.methods('useAmmPrice');
+    async returnAmmPrice(): Promise<boolean>{
+        let result = await this.methods('returnAmmPrice');
         return result;
     }
     async wethDecimals(): Promise<BigNumber>{

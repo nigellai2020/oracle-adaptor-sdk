@@ -5,7 +5,7 @@ export declare class OSWAP_OracleChainlinkPriceGuardBinance extends Contract {
         factory: string;
         maxValue: number | BigNumber;
         deviation: number | BigNumber;
-        useAmmPrice: boolean;
+        returnAmmPrice: boolean;
     }): Promise<string>;
     WETH(): Promise<string>;
     _WBNB(): Promise<string>;
@@ -46,7 +46,7 @@ export declare class OSWAP_OracleChainlinkPriceGuardBinance extends Contract {
     low(): Promise<BigNumber>;
     maxValue(): Promise<BigNumber>;
     priceFeedAddresses(param1: string): Promise<string>;
-    useAmmPrice(): Promise<boolean>;
+    returnAmmPrice(): Promise<boolean>;
     wethDecimals(): Promise<BigNumber>;
     wethPriceFeed(): Promise<string>;
 }

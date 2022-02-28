@@ -4,10 +4,10 @@ export declare class OSWAP_OracleConstantLimited extends Contract {
     deploy(params: {
         token0: string[];
         token1: string[];
-        price0: number[] | BigNumber[];
-        price1: number[] | BigNumber[];
-        limit0: number[] | BigNumber[];
-        limit1: number[] | BigNumber[];
+        price0: (number | BigNumber)[];
+        price1: (number | BigNumber)[];
+        limit0: (number | BigNumber)[];
+        limit1: (number | BigNumber)[];
     }): Promise<string>;
     decimals(): Promise<BigNumber>;
     getLatestPrice(params: {

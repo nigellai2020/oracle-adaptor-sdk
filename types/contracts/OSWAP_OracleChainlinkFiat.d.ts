@@ -13,9 +13,9 @@ export declare class OSWAP_OracleChainlinkFiat extends Contract {
     getRatio(params: {
         from: string;
         to: string;
-        param3: number | BigNumber;
-        param4: number | BigNumber;
-        param5: string;
+        fromAmount: number | BigNumber;
+        toAmount: number | BigNumber;
+        payload: string;
     }): Promise<{
         numerator: BigNumber;
         denominator: BigNumber;

@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/contracts/OSWAP_OracleChainlinkFiatAvalanche.json");
 
 export class OSWAP_OracleChainlinkFiatAvalanche extends Contract{

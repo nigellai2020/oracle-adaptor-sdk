@@ -1,4 +1,4 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/contracts/OSWAP_OracleChainlinkFiat.json");
 
 export class OSWAP_OracleChainlinkFiat extends Contract{
@@ -24,8 +24,8 @@ export class OSWAP_OracleChainlinkFiat extends Contract{
         let result = await this.methods('getLatestPrice',params.from,params.to,params.payload);
         return new BigNumber(result);
     }
-    async getRatio(params:{from:string,to:string,param3:number|BigNumber,param4:number|BigNumber,param5:string}): Promise<{numerator:BigNumber,denominator:BigNumber}>{
-        let result = await this.methods('getRatio',params.from,params.to,Utils.toString(params.param3),Utils.toString(params.param4),params.param5);
+    async getRatio(params:{from:string,to:string,fromAmount:number|BigNumber,toAmount:number|BigNumber,payload:string}): Promise<{numerator:BigNumber,denominator:BigNumber}>{
+        let result = await this.methods('getRatio',params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),params.payload);
         return {
             numerator: new BigNumber(result.numerator),
             denominator: new BigNumber(result.denominator)

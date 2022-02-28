@@ -45,7 +45,7 @@ export declare class OSWAP_OracleChainlinkPriceGuardFiatBinance extends Contract
     low(): Promise<BigNumber>;
     maxValue(): Promise<BigNumber>;
     priceFeedAddresses(param1: string): Promise<string>;
-    useAmmPrice(): Promise<boolean>;
+    returnAmmPrice(): Promise<boolean>;
     wethDecimals(): Promise<BigNumber>;
     wethPriceFeed(): Promise<string>;
 }

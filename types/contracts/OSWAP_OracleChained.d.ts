@@ -4,7 +4,7 @@ export declare class OSWAP_OracleChained extends Contract {
     deploy(params: {
         from: string[];
         to: string[];
-        count: number[] | BigNumber[];
+        count: (number | BigNumber)[];
         paths: string[];
         oracles: string[];
     }): Promise<string>;

@@ -1,11 +1,11 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber} from "@ijstech/eth-wallet";
+import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
 const Bin = require("../../bin/contracts/OSWAP_OracleConstantLimited.json");
 
 export class OSWAP_OracleConstantLimited extends Contract{
     constructor(wallet: Wallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
     }
-    deploy(params:{token0:string[],token1:string[],price0:number[]|BigNumber[],price1:number[]|BigNumber[],limit0:number[]|BigNumber[],limit1:number[]|BigNumber[]}): Promise<string>{
+    deploy(params:{token0:string[],token1:string[],price0:(number|BigNumber)[],price1:(number|BigNumber)[],limit0:(number|BigNumber)[],limit1:(number|BigNumber)[]}): Promise<string>{
         return this._deploy(params.token0,params.token1,Utils.toString(params.price0),Utils.toString(params.price1),Utils.toString(params.limit0),Utils.toString(params.limit1));
     }
     async decimals(): Promise<BigNumber>{

@@ -49,7 +49,14 @@ var require_OSWAP_OracleChainlinkBinance = __commonJS({
 // bin/contracts/OSWAP_OracleChainlinkFiat.json
 var require_OSWAP_OracleChainlinkFiat = __commonJS({
   "bin/contracts/OSWAP_OracleChainlinkFiat.json"(exports, module2) {
-    module2.exports = { abi: [{ inputs: [], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "bytes", name: "", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+    module2.exports = { abi: [{ inputs: [], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkFiatAvalanche.json
+var require_OSWAP_OracleChainlinkFiatAvalanche = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkFiatAvalanche.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
   }
 });
 
@@ -57,6 +64,48 @@ var require_OSWAP_OracleChainlinkFiat = __commonJS({
 var require_OSWAP_OracleChainlinkFiatBinance = __commonJS({
   "bin/contracts/OSWAP_OracleChainlinkFiatBinance.json"(exports, module2) {
     module2.exports = { abi: [{ inputs: [], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkFiatGeneric.json
+var require_OSWAP_OracleChainlinkFiatGeneric = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkFiatGeneric.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address[]", name: "_tokens", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkGeneric.json
+var require_OSWAP_OracleChainlinkGeneric = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkGeneric.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_weth", type: "address" }, { internalType: "address[]", name: "_tokens", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "bytes", name: "", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkLimitedGeneric.json
+var require_OSWAP_OracleChainlinkLimitedGeneric = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkLimitedGeneric.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "factory", type: "address" }, { internalType: "address", name: "_weth", type: "address" }, { internalType: "address[]", name: "token", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatGeneric.json
+var require_OSWAP_OracleChainlinkPriceGuardFiatGeneric = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatGeneric.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address[]", name: "_tokens", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }, { internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "returnAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkPriceGuardGeneric.json
+var require_OSWAP_OracleChainlinkPriceGuardGeneric = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkPriceGuardGeneric.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_weth", type: "address" }, { internalType: "address", name: "wethPriceFeed", type: "address" }, { internalType: "address[]", name: "_tokens", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }, { internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "returnAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkV1Generic.json
+var require_OSWAP_OracleChainlinkV1Generic = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkV1Generic.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_weth", type: "address" }, { internalType: "address[]", name: "_tokens", type: "address[]" }, { internalType: "address[]", name: "_pricefeeds", type: "address[]" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "uint256", name: "", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
   }
 });
 
@@ -70,14 +119,21 @@ var require_OSWAP_OracleChainlinkLimited = __commonJS({
 // bin/contracts/OSWAP_OracleChainlinkPriceGuardBinance.json
 var require_OSWAP_OracleChainlinkPriceGuardBinance = __commonJS({
   "bin/contracts/OSWAP_OracleChainlinkPriceGuardBinance.json"(exports, module2) {
-    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_useAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "_WBNB", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "useAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "_WBNB", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "returnAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+  }
+});
+
+// bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatAvalanche.json
+var require_OSWAP_OracleChainlinkPriceGuardFiatAvalanche = __commonJS({
+  "bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatAvalanche.json"(exports, module2) {
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "returnAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
   }
 });
 
 // bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.json
 var require_OSWAP_OracleChainlinkPriceGuardFiatBinance = __commonJS({
   "bin/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.json"(exports, module2) {
-    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "useAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
+    module2.exports = { abi: [{ inputs: [{ internalType: "address", name: "_factory", type: "address" }, { internalType: "uint256", name: "_maxValue", type: "uint256" }, { internalType: "uint256", name: "_deviation", type: "uint256" }, { internalType: "bool", name: "_returnAmmPrice", type: "bool" }], stateMutability: "nonpayable", type: "constructor" }, { inputs: [], name: "WETH", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "chainlinkDeicmals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "decimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "factory", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getLatestPrice", outputs: [{ internalType: "uint256", name: "price", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }], name: "getPriceInfo", outputs: [{ internalType: "uint256", name: "chainlinkPrice", type: "uint256" }, { internalType: "uint256", name: "ammPrice", type: "uint256" }, { internalType: "uint256", name: "usdAmount", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }, { internalType: "uint256", name: "fromAmount", type: "uint256" }, { internalType: "uint256", name: "toAmount", type: "uint256" }, { internalType: "bytes", name: "payload", type: "bytes" }], name: "getRatio", outputs: [{ internalType: "uint256", name: "numerator", type: "uint256" }, { internalType: "uint256", name: "denominator", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "high", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "from", type: "address" }, { internalType: "address", name: "to", type: "address" }], name: "isSupported", outputs: [{ internalType: "bool", name: "supported", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "low", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [], name: "maxValue", outputs: [{ internalType: "uint256", name: "", type: "uint256" }], stateMutability: "view", type: "function" }, { inputs: [{ internalType: "address", name: "", type: "address" }], name: "priceFeedAddresses", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }, { inputs: [], name: "returnAmmPrice", outputs: [{ internalType: "bool", name: "", type: "bool" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethDecimals", outputs: [{ internalType: "uint8", name: "", type: "uint8" }], stateMutability: "view", type: "function" }, { inputs: [], name: "wethPriceFeed", outputs: [{ internalType: "address", name: "", type: "address" }], stateMutability: "view", type: "function" }] };
   }
 });
 
@@ -129,10 +185,18 @@ __export(contracts_exports, {
   OSWAP_OracleChainlink: () => OSWAP_OracleChainlink,
   OSWAP_OracleChainlinkBinance: () => OSWAP_OracleChainlinkBinance,
   OSWAP_OracleChainlinkFiat: () => OSWAP_OracleChainlinkFiat,
+  OSWAP_OracleChainlinkFiatAvalanche: () => OSWAP_OracleChainlinkFiatAvalanche,
   OSWAP_OracleChainlinkFiatBinance: () => OSWAP_OracleChainlinkFiatBinance,
+  OSWAP_OracleChainlinkFiatGeneric: () => OSWAP_OracleChainlinkFiatGeneric,
+  OSWAP_OracleChainlinkGeneric: () => OSWAP_OracleChainlinkGeneric,
   OSWAP_OracleChainlinkLimited: () => OSWAP_OracleChainlinkLimited,
+  OSWAP_OracleChainlinkLimitedGeneric: () => OSWAP_OracleChainlinkLimitedGeneric,
   OSWAP_OracleChainlinkPriceGuardBinance: () => OSWAP_OracleChainlinkPriceGuardBinance,
+  OSWAP_OracleChainlinkPriceGuardFiatAvalanche: () => OSWAP_OracleChainlinkPriceGuardFiatAvalanche,
   OSWAP_OracleChainlinkPriceGuardFiatBinance: () => OSWAP_OracleChainlinkPriceGuardFiatBinance,
+  OSWAP_OracleChainlinkPriceGuardFiatGeneric: () => OSWAP_OracleChainlinkPriceGuardFiatGeneric,
+  OSWAP_OracleChainlinkPriceGuardGeneric: () => OSWAP_OracleChainlinkPriceGuardGeneric,
+  OSWAP_OracleChainlinkV1Generic: () => OSWAP_OracleChainlinkV1Generic,
   OSWAP_OracleConstant: () => OSWAP_OracleConstant,
   OSWAP_OracleConstantLimited: () => OSWAP_OracleConstantLimited,
   OSWAP_OracleSetYourOwnPrice: () => OSWAP_OracleSetYourOwnPrice,
@@ -304,7 +368,7 @@ var OSWAP_OracleChainlinkFiat = class extends import_eth_wallet4.Contract {
     return new import_eth_wallet4.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet4.Utils.toString(params.param3), import_eth_wallet4.Utils.toString(params.param4), params.param5);
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet4.Utils.toString(params.fromAmount), import_eth_wallet4.Utils.toString(params.toAmount), params.payload);
     return {
       numerator: new import_eth_wallet4.BigNumber(result.numerator),
       denominator: new import_eth_wallet4.BigNumber(result.denominator)
@@ -320,10 +384,10 @@ var OSWAP_OracleChainlinkFiat = class extends import_eth_wallet4.Contract {
   }
 };
 
-// src/contracts/OSWAP_OracleChainlinkFiatBinance.ts
+// src/contracts/OSWAP_OracleChainlinkFiatAvalanche.ts
 var import_eth_wallet5 = require("@ijstech/eth-wallet");
-var Bin5 = require_OSWAP_OracleChainlinkFiatBinance();
-var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet5.Contract {
+var Bin5 = require_OSWAP_OracleChainlinkFiatAvalanche();
+var OSWAP_OracleChainlinkFiatAvalanche = class extends import_eth_wallet5.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin5.abi, Bin5.bytecode);
   }
@@ -363,22 +427,18 @@ var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet5.Contract
   }
 };
 
-// src/contracts/OSWAP_OracleChainlinkLimited.ts
+// src/contracts/OSWAP_OracleChainlinkFiatBinance.ts
 var import_eth_wallet6 = require("@ijstech/eth-wallet");
-var Bin6 = require_OSWAP_OracleChainlinkLimited();
-var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet6.Contract {
+var Bin6 = require_OSWAP_OracleChainlinkFiatBinance();
+var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet6.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin6.abi, Bin6.bytecode);
   }
-  deploy(factory) {
-    return this._deploy(factory);
+  deploy() {
+    return this._deploy();
   }
   async WETH() {
     let result = await this.methods("WETH");
-    return result;
-  }
-  async _WETH() {
-    let result = await this.methods("_WETH");
     return result;
   }
   async chainlinkDeicmals() {
@@ -388,10 +448,6 @@ var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet6.Contract {
   async decimals() {
     let result = await this.methods("decimals");
     return new import_eth_wallet6.BigNumber(result);
-  }
-  async factory() {
-    let result = await this.methods("factory");
-    return result;
   }
   async getLatestPrice(params) {
     let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
@@ -414,22 +470,18 @@ var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet6.Contract {
   }
 };
 
-// src/contracts/OSWAP_OracleChainlinkPriceGuardBinance.ts
+// src/contracts/OSWAP_OracleChainlinkFiatGeneric.ts
 var import_eth_wallet7 = require("@ijstech/eth-wallet");
-var Bin7 = require_OSWAP_OracleChainlinkPriceGuardBinance();
-var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet7.Contract {
+var Bin7 = require_OSWAP_OracleChainlinkFiatGeneric();
+var OSWAP_OracleChainlinkFiatGeneric = class extends import_eth_wallet7.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin7.abi, Bin7.bytecode);
   }
   deploy(params) {
-    return this._deploy(params.factory, import_eth_wallet7.Utils.toString(params.maxValue), import_eth_wallet7.Utils.toString(params.deviation), params.useAmmPrice);
+    return this._deploy(params.tokens, params.pricefeeds);
   }
   async WETH() {
     let result = await this.methods("WETH");
-    return result;
-  }
-  async _WBNB() {
-    let result = await this.methods("_WBNB");
     return result;
   }
   async chainlinkDeicmals() {
@@ -440,25 +492,9 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet7.Co
     let result = await this.methods("decimals");
     return new import_eth_wallet7.BigNumber(result);
   }
-  async decimals_1(param1) {
-    let result = await this.methods("decimals", param1);
-    return new import_eth_wallet7.BigNumber(result);
-  }
-  async factory() {
-    let result = await this.methods("factory");
-    return result;
-  }
   async getLatestPrice(params) {
     let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
     return new import_eth_wallet7.BigNumber(result);
-  }
-  async getPriceInfo(params) {
-    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet7.Utils.toString(params.fromAmount), import_eth_wallet7.Utils.toString(params.toAmount));
-    return {
-      chainlinkPrice: new import_eth_wallet7.BigNumber(result.chainlinkPrice),
-      ammPrice: new import_eth_wallet7.BigNumber(result.ammPrice),
-      usdAmount: new import_eth_wallet7.BigNumber(result.usdAmount)
-    };
   }
   async getRatio(params) {
     let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet7.Utils.toString(params.fromAmount), import_eth_wallet7.Utils.toString(params.toAmount), params.payload);
@@ -467,49 +503,25 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet7.Co
       denominator: new import_eth_wallet7.BigNumber(result.denominator)
     };
   }
-  async high() {
-    let result = await this.methods("high");
-    return new import_eth_wallet7.BigNumber(result);
-  }
   async isSupported(params) {
     let result = await this.methods("isSupported", params.from, params.to);
     return result;
-  }
-  async low() {
-    let result = await this.methods("low");
-    return new import_eth_wallet7.BigNumber(result);
-  }
-  async maxValue() {
-    let result = await this.methods("maxValue");
-    return new import_eth_wallet7.BigNumber(result);
   }
   async priceFeedAddresses(param1) {
     let result = await this.methods("priceFeedAddresses", param1);
     return result;
   }
-  async useAmmPrice() {
-    let result = await this.methods("useAmmPrice");
-    return result;
-  }
-  async wethDecimals() {
-    let result = await this.methods("wethDecimals");
-    return new import_eth_wallet7.BigNumber(result);
-  }
-  async wethPriceFeed() {
-    let result = await this.methods("wethPriceFeed");
-    return result;
-  }
 };
 
-// src/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.ts
+// src/contracts/OSWAP_OracleChainlinkGeneric.ts
 var import_eth_wallet8 = require("@ijstech/eth-wallet");
-var Bin8 = require_OSWAP_OracleChainlinkPriceGuardFiatBinance();
-var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet8.Contract {
+var Bin8 = require_OSWAP_OracleChainlinkGeneric();
+var OSWAP_OracleChainlinkGeneric = class extends import_eth_wallet8.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin8.abi, Bin8.bytecode);
   }
   deploy(params) {
-    return this._deploy(params.factory, import_eth_wallet8.Utils.toString(params.maxValue), import_eth_wallet8.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this._deploy(params.weth, params.tokens, params.pricefeeds);
   }
   async WETH() {
     let result = await this.methods("WETH");
@@ -523,9 +535,48 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
     let result = await this.methods("decimals");
     return new import_eth_wallet8.BigNumber(result);
   }
-  async decimals_1(param1) {
-    let result = await this.methods("decimals", param1);
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
     return new import_eth_wallet8.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet8.Utils.toString(params.param3), import_eth_wallet8.Utils.toString(params.param4), params.param5);
+    return {
+      numerator: new import_eth_wallet8.BigNumber(result.numerator),
+      denominator: new import_eth_wallet8.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleChainlinkLimitedGeneric.ts
+var import_eth_wallet9 = require("@ijstech/eth-wallet");
+var Bin9 = require_OSWAP_OracleChainlinkLimitedGeneric();
+var OSWAP_OracleChainlinkLimitedGeneric = class extends import_eth_wallet9.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin9.abi, Bin9.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.factory, params.weth, params.token, params.pricefeeds);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet9.BigNumber(result);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet9.BigNumber(result);
   }
   async factory() {
     let result = await this.methods("factory");
@@ -533,109 +584,66 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
   }
   async getLatestPrice(params) {
     let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
-    return new import_eth_wallet8.BigNumber(result);
-  }
-  async getPriceInfo(params) {
-    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet8.Utils.toString(params.fromAmount), import_eth_wallet8.Utils.toString(params.toAmount));
-    return {
-      chainlinkPrice: new import_eth_wallet8.BigNumber(result.chainlinkPrice),
-      ammPrice: new import_eth_wallet8.BigNumber(result.ammPrice),
-      usdAmount: new import_eth_wallet8.BigNumber(result.usdAmount)
-    };
-  }
-  async getRatio(params) {
-    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet8.Utils.toString(params.fromAmount), import_eth_wallet8.Utils.toString(params.toAmount), params.payload);
-    return {
-      numerator: new import_eth_wallet8.BigNumber(result.numerator),
-      denominator: new import_eth_wallet8.BigNumber(result.denominator)
-    };
-  }
-  async high() {
-    let result = await this.methods("high");
-    return new import_eth_wallet8.BigNumber(result);
-  }
-  async isSupported(params) {
-    let result = await this.methods("isSupported", params.from, params.to);
-    return result;
-  }
-  async low() {
-    let result = await this.methods("low");
-    return new import_eth_wallet8.BigNumber(result);
-  }
-  async maxValue() {
-    let result = await this.methods("maxValue");
-    return new import_eth_wallet8.BigNumber(result);
-  }
-  async priceFeedAddresses(param1) {
-    let result = await this.methods("priceFeedAddresses", param1);
-    return result;
-  }
-  async useAmmPrice() {
-    let result = await this.methods("useAmmPrice");
-    return result;
-  }
-  async wethDecimals() {
-    let result = await this.methods("wethDecimals");
-    return new import_eth_wallet8.BigNumber(result);
-  }
-  async wethPriceFeed() {
-    let result = await this.methods("wethPriceFeed");
-    return result;
-  }
-};
-
-// src/contracts/OSWAP_OracleConstant.ts
-var import_eth_wallet9 = require("@ijstech/eth-wallet");
-var Bin9 = require_OSWAP_OracleConstant();
-var OSWAP_OracleConstant = class extends import_eth_wallet9.Contract {
-  constructor(wallet, address) {
-    super(wallet, address, Bin9.abi, Bin9.bytecode);
-  }
-  deploy(params) {
-    return this._deploy(params.token0, params.token1, import_eth_wallet9.Utils.toString(params.price0), import_eth_wallet9.Utils.toString(params.price1));
-  }
-  async decimals() {
-    let result = await this.methods("decimals");
-    return new import_eth_wallet9.BigNumber(result);
-  }
-  async getLatestPrice(params) {
-    let result = await this.methods("getLatestPrice", params.from, params.to, params.param3);
     return new import_eth_wallet9.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet9.Utils.toString(params.param3), import_eth_wallet9.Utils.toString(params.param4), params.payload);
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet9.Utils.toString(params.fromAmount), import_eth_wallet9.Utils.toString(params.toAmount), params.payload);
     return {
       numerator: new import_eth_wallet9.BigNumber(result.numerator),
       denominator: new import_eth_wallet9.BigNumber(result.denominator)
     };
   }
   async isSupported(params) {
-    let result = await this.methods("isSupported", params.param1, params.param2);
+    let result = await this.methods("isSupported", params.from, params.to);
     return result;
   }
-  async prices(params) {
-    let result = await this.methods("prices", params.param1, params.param2);
-    return new import_eth_wallet9.BigNumber(result);
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
   }
 };
 
-// src/contracts/OSWAP_OracleConstantLimited.ts
+// src/contracts/OSWAP_OracleChainlinkPriceGuardFiatGeneric.ts
 var import_eth_wallet10 = require("@ijstech/eth-wallet");
-var Bin10 = require_OSWAP_OracleConstantLimited();
-var OSWAP_OracleConstantLimited = class extends import_eth_wallet10.Contract {
+var Bin10 = require_OSWAP_OracleChainlinkPriceGuardFiatGeneric();
+var OSWAP_OracleChainlinkPriceGuardFiatGeneric = class extends import_eth_wallet10.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin10.abi, Bin10.bytecode);
   }
   deploy(params) {
-    return this._deploy(params.token0, params.token1, import_eth_wallet10.Utils.toString(params.price0), import_eth_wallet10.Utils.toString(params.price1), import_eth_wallet10.Utils.toString(params.limit0), import_eth_wallet10.Utils.toString(params.limit1));
+    return this._deploy(params.tokens, params.pricefeeds, params.factory, import_eth_wallet10.Utils.toString(params.maxValue), import_eth_wallet10.Utils.toString(params.deviation), params.returnAmmPrice);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet10.BigNumber(result);
   }
   async decimals() {
     let result = await this.methods("decimals");
     return new import_eth_wallet10.BigNumber(result);
   }
-  async getLatestPrice(params) {
-    let result = await this.methods("getLatestPrice", params.from, params.to, params.param3);
+  async decimals_1(param1) {
+    let result = await this.methods("decimals", param1);
     return new import_eth_wallet10.BigNumber(result);
+  }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet10.BigNumber(result);
+  }
+  async getPriceInfo(params) {
+    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet10.Utils.toString(params.fromAmount), import_eth_wallet10.Utils.toString(params.toAmount));
+    return {
+      chainlinkPrice: new import_eth_wallet10.BigNumber(result.chainlinkPrice),
+      ammPrice: new import_eth_wallet10.BigNumber(result.ammPrice),
+      usdAmount: new import_eth_wallet10.BigNumber(result.usdAmount)
+    };
   }
   async getRatio(params) {
     let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet10.Utils.toString(params.fromAmount), import_eth_wallet10.Utils.toString(params.toAmount), params.payload);
@@ -644,60 +652,132 @@ var OSWAP_OracleConstantLimited = class extends import_eth_wallet10.Contract {
       denominator: new import_eth_wallet10.BigNumber(result.denominator)
     };
   }
+  async high() {
+    let result = await this.methods("high");
+    return new import_eth_wallet10.BigNumber(result);
+  }
   async isSupported(params) {
-    let result = await this.methods("isSupported", params.param1, params.param2);
+    let result = await this.methods("isSupported", params.from, params.to);
     return result;
   }
-  async limits(params) {
-    let result = await this.methods("limits", params.param1, params.param2, params.param3);
+  async low() {
+    let result = await this.methods("low");
     return new import_eth_wallet10.BigNumber(result);
   }
-  async prices(params) {
-    let result = await this.methods("prices", params.param1, params.param2);
+  async maxValue() {
+    let result = await this.methods("maxValue");
     return new import_eth_wallet10.BigNumber(result);
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+  async returnAmmPrice() {
+    let result = await this.methods("returnAmmPrice");
+    return result;
+  }
+  async wethDecimals() {
+    let result = await this.methods("wethDecimals");
+    return new import_eth_wallet10.BigNumber(result);
+  }
+  async wethPriceFeed() {
+    let result = await this.methods("wethPriceFeed");
+    return result;
   }
 };
 
-// src/contracts/OSWAP_OracleSetYourOwnPrice.ts
+// src/contracts/OSWAP_OracleChainlinkPriceGuardGeneric.ts
 var import_eth_wallet11 = require("@ijstech/eth-wallet");
-var Bin11 = require_OSWAP_OracleSetYourOwnPrice();
-var OSWAP_OracleSetYourOwnPrice = class extends import_eth_wallet11.Contract {
+var Bin11 = require_OSWAP_OracleChainlinkPriceGuardGeneric();
+var OSWAP_OracleChainlinkPriceGuardGeneric = class extends import_eth_wallet11.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin11.abi, Bin11.bytecode);
   }
-  deploy() {
-    return this._deploy();
+  deploy(params) {
+    return this._deploy(params.weth, params.wethPriceFeed, params.tokens, params.pricefeeds, params.factory, import_eth_wallet11.Utils.toString(params.maxValue), import_eth_wallet11.Utils.toString(params.deviation), params.returnAmmPrice);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet11.BigNumber(result);
   }
   async decimals() {
     let result = await this.methods("decimals");
     return new import_eth_wallet11.BigNumber(result);
   }
-  async getLatestPrice(params) {
-    let result = await this.methods("getLatestPrice", params.param1, params.param2, params.payload);
+  async decimals_1(param1) {
+    let result = await this.methods("decimals", param1);
     return new import_eth_wallet11.BigNumber(result);
   }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet11.BigNumber(result);
+  }
+  async getPriceInfo(params) {
+    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet11.Utils.toString(params.fromAmount), import_eth_wallet11.Utils.toString(params.toAmount));
+    return {
+      chainlinkPrice: new import_eth_wallet11.BigNumber(result.chainlinkPrice),
+      ammPrice: new import_eth_wallet11.BigNumber(result.ammPrice),
+      usdAmount: new import_eth_wallet11.BigNumber(result.usdAmount)
+    };
+  }
   async getRatio(params) {
-    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet11.Utils.toString(params.param3), import_eth_wallet11.Utils.toString(params.param4), params.payload);
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet11.Utils.toString(params.fromAmount), import_eth_wallet11.Utils.toString(params.toAmount), params.payload);
     return {
       numerator: new import_eth_wallet11.BigNumber(result.numerator),
       denominator: new import_eth_wallet11.BigNumber(result.denominator)
     };
   }
+  async high() {
+    let result = await this.methods("high");
+    return new import_eth_wallet11.BigNumber(result);
+  }
   async isSupported(params) {
-    let result = await this.methods("isSupported", params.param1, params.param2);
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async low() {
+    let result = await this.methods("low");
+    return new import_eth_wallet11.BigNumber(result);
+  }
+  async maxValue() {
+    let result = await this.methods("maxValue");
+    return new import_eth_wallet11.BigNumber(result);
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+  async returnAmmPrice() {
+    let result = await this.methods("returnAmmPrice");
+    return result;
+  }
+  async wethDecimals() {
+    let result = await this.methods("wethDecimals");
+    return new import_eth_wallet11.BigNumber(result);
+  }
+  async wethPriceFeed() {
+    let result = await this.methods("wethPriceFeed");
     return result;
   }
 };
 
-// src/contracts/OSWAP_OracleSigned.ts
+// src/contracts/OSWAP_OracleChainlinkV1Generic.ts
 var import_eth_wallet12 = require("@ijstech/eth-wallet");
-var Bin12 = require_OSWAP_OracleSigned();
-var OSWAP_OracleSigned = class extends import_eth_wallet12.Contract {
+var Bin12 = require_OSWAP_OracleChainlinkV1Generic();
+var OSWAP_OracleChainlinkV1Generic = class extends import_eth_wallet12.Contract {
   constructor(wallet, address) {
     super(wallet, address, Bin12.abi, Bin12.bytecode);
   }
-  deploy(signer) {
-    return this._deploy(signer);
+  deploy(params) {
+    return this._deploy(params.weth, params.tokens, params.pricefeeds);
   }
   async decimals() {
     let result = await this.methods("decimals");
@@ -715,12 +795,456 @@ var OSWAP_OracleSigned = class extends import_eth_wallet12.Contract {
     };
   }
   async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleChainlinkLimited.ts
+var import_eth_wallet13 = require("@ijstech/eth-wallet");
+var Bin13 = require_OSWAP_OracleChainlinkLimited();
+var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet13.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin13.abi, Bin13.bytecode);
+  }
+  deploy(factory) {
+    return this._deploy(factory);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async _WETH() {
+    let result = await this.methods("_WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet13.BigNumber(result);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet13.BigNumber(result);
+  }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet13.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet13.Utils.toString(params.fromAmount), import_eth_wallet13.Utils.toString(params.toAmount), params.payload);
+    return {
+      numerator: new import_eth_wallet13.BigNumber(result.numerator),
+      denominator: new import_eth_wallet13.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleChainlinkPriceGuardBinance.ts
+var import_eth_wallet14 = require("@ijstech/eth-wallet");
+var Bin14 = require_OSWAP_OracleChainlinkPriceGuardBinance();
+var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet14.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin14.abi, Bin14.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.factory, import_eth_wallet14.Utils.toString(params.maxValue), import_eth_wallet14.Utils.toString(params.deviation), params.returnAmmPrice);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async _WBNB() {
+    let result = await this.methods("_WBNB");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async decimals_1(param1) {
+    let result = await this.methods("decimals", param1);
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async getPriceInfo(params) {
+    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet14.Utils.toString(params.fromAmount), import_eth_wallet14.Utils.toString(params.toAmount));
+    return {
+      chainlinkPrice: new import_eth_wallet14.BigNumber(result.chainlinkPrice),
+      ammPrice: new import_eth_wallet14.BigNumber(result.ammPrice),
+      usdAmount: new import_eth_wallet14.BigNumber(result.usdAmount)
+    };
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet14.Utils.toString(params.fromAmount), import_eth_wallet14.Utils.toString(params.toAmount), params.payload);
+    return {
+      numerator: new import_eth_wallet14.BigNumber(result.numerator),
+      denominator: new import_eth_wallet14.BigNumber(result.denominator)
+    };
+  }
+  async high() {
+    let result = await this.methods("high");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async low() {
+    let result = await this.methods("low");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async maxValue() {
+    let result = await this.methods("maxValue");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+  async returnAmmPrice() {
+    let result = await this.methods("returnAmmPrice");
+    return result;
+  }
+  async wethDecimals() {
+    let result = await this.methods("wethDecimals");
+    return new import_eth_wallet14.BigNumber(result);
+  }
+  async wethPriceFeed() {
+    let result = await this.methods("wethPriceFeed");
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleChainlinkPriceGuardFiatAvalanche.ts
+var import_eth_wallet15 = require("@ijstech/eth-wallet");
+var Bin15 = require_OSWAP_OracleChainlinkPriceGuardFiatAvalanche();
+var OSWAP_OracleChainlinkPriceGuardFiatAvalanche = class extends import_eth_wallet15.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin15.abi, Bin15.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.factory, import_eth_wallet15.Utils.toString(params.maxValue), import_eth_wallet15.Utils.toString(params.deviation), params.returnAmmPrice);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async decimals_1(param1) {
+    let result = await this.methods("decimals", param1);
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async getPriceInfo(params) {
+    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet15.Utils.toString(params.fromAmount), import_eth_wallet15.Utils.toString(params.toAmount));
+    return {
+      chainlinkPrice: new import_eth_wallet15.BigNumber(result.chainlinkPrice),
+      ammPrice: new import_eth_wallet15.BigNumber(result.ammPrice),
+      usdAmount: new import_eth_wallet15.BigNumber(result.usdAmount)
+    };
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet15.Utils.toString(params.fromAmount), import_eth_wallet15.Utils.toString(params.toAmount), params.payload);
+    return {
+      numerator: new import_eth_wallet15.BigNumber(result.numerator),
+      denominator: new import_eth_wallet15.BigNumber(result.denominator)
+    };
+  }
+  async high() {
+    let result = await this.methods("high");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async low() {
+    let result = await this.methods("low");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async maxValue() {
+    let result = await this.methods("maxValue");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+  async returnAmmPrice() {
+    let result = await this.methods("returnAmmPrice");
+    return result;
+  }
+  async wethDecimals() {
+    let result = await this.methods("wethDecimals");
+    return new import_eth_wallet15.BigNumber(result);
+  }
+  async wethPriceFeed() {
+    let result = await this.methods("wethPriceFeed");
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.ts
+var import_eth_wallet16 = require("@ijstech/eth-wallet");
+var Bin16 = require_OSWAP_OracleChainlinkPriceGuardFiatBinance();
+var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet16.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin16.abi, Bin16.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.factory, import_eth_wallet16.Utils.toString(params.maxValue), import_eth_wallet16.Utils.toString(params.deviation), params.returnAmmPrice);
+  }
+  async WETH() {
+    let result = await this.methods("WETH");
+    return result;
+  }
+  async chainlinkDeicmals() {
+    let result = await this.methods("chainlinkDeicmals");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async decimals_1(param1) {
+    let result = await this.methods("decimals", param1);
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async factory() {
+    let result = await this.methods("factory");
+    return result;
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async getPriceInfo(params) {
+    let result = await this.methods("getPriceInfo", params.from, params.to, import_eth_wallet16.Utils.toString(params.fromAmount), import_eth_wallet16.Utils.toString(params.toAmount));
+    return {
+      chainlinkPrice: new import_eth_wallet16.BigNumber(result.chainlinkPrice),
+      ammPrice: new import_eth_wallet16.BigNumber(result.ammPrice),
+      usdAmount: new import_eth_wallet16.BigNumber(result.usdAmount)
+    };
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet16.Utils.toString(params.fromAmount), import_eth_wallet16.Utils.toString(params.toAmount), params.payload);
+    return {
+      numerator: new import_eth_wallet16.BigNumber(result.numerator),
+      denominator: new import_eth_wallet16.BigNumber(result.denominator)
+    };
+  }
+  async high() {
+    let result = await this.methods("high");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.from, params.to);
+    return result;
+  }
+  async low() {
+    let result = await this.methods("low");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async maxValue() {
+    let result = await this.methods("maxValue");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async priceFeedAddresses(param1) {
+    let result = await this.methods("priceFeedAddresses", param1);
+    return result;
+  }
+  async returnAmmPrice() {
+    let result = await this.methods("returnAmmPrice");
+    return result;
+  }
+  async wethDecimals() {
+    let result = await this.methods("wethDecimals");
+    return new import_eth_wallet16.BigNumber(result);
+  }
+  async wethPriceFeed() {
+    let result = await this.methods("wethPriceFeed");
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleConstant.ts
+var import_eth_wallet17 = require("@ijstech/eth-wallet");
+var Bin17 = require_OSWAP_OracleConstant();
+var OSWAP_OracleConstant = class extends import_eth_wallet17.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin17.abi, Bin17.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.token0, params.token1, import_eth_wallet17.Utils.toString(params.price0), import_eth_wallet17.Utils.toString(params.price1));
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet17.BigNumber(result);
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.param3);
+    return new import_eth_wallet17.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet17.Utils.toString(params.param3), import_eth_wallet17.Utils.toString(params.param4), params.payload);
+    return {
+      numerator: new import_eth_wallet17.BigNumber(result.numerator),
+      denominator: new import_eth_wallet17.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.param1, params.param2);
+    return result;
+  }
+  async prices(params) {
+    let result = await this.methods("prices", params.param1, params.param2);
+    return new import_eth_wallet17.BigNumber(result);
+  }
+};
+
+// src/contracts/OSWAP_OracleConstantLimited.ts
+var import_eth_wallet18 = require("@ijstech/eth-wallet");
+var Bin18 = require_OSWAP_OracleConstantLimited();
+var OSWAP_OracleConstantLimited = class extends import_eth_wallet18.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin18.abi, Bin18.bytecode);
+  }
+  deploy(params) {
+    return this._deploy(params.token0, params.token1, import_eth_wallet18.Utils.toString(params.price0), import_eth_wallet18.Utils.toString(params.price1), import_eth_wallet18.Utils.toString(params.limit0), import_eth_wallet18.Utils.toString(params.limit1));
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet18.BigNumber(result);
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.param3);
+    return new import_eth_wallet18.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet18.Utils.toString(params.fromAmount), import_eth_wallet18.Utils.toString(params.toAmount), params.payload);
+    return {
+      numerator: new import_eth_wallet18.BigNumber(result.numerator),
+      denominator: new import_eth_wallet18.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.param1, params.param2);
+    return result;
+  }
+  async limits(params) {
+    let result = await this.methods("limits", params.param1, params.param2, params.param3);
+    return new import_eth_wallet18.BigNumber(result);
+  }
+  async prices(params) {
+    let result = await this.methods("prices", params.param1, params.param2);
+    return new import_eth_wallet18.BigNumber(result);
+  }
+};
+
+// src/contracts/OSWAP_OracleSetYourOwnPrice.ts
+var import_eth_wallet19 = require("@ijstech/eth-wallet");
+var Bin19 = require_OSWAP_OracleSetYourOwnPrice();
+var OSWAP_OracleSetYourOwnPrice = class extends import_eth_wallet19.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin19.abi, Bin19.bytecode);
+  }
+  deploy() {
+    return this._deploy();
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet19.BigNumber(result);
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.param1, params.param2, params.payload);
+    return new import_eth_wallet19.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet19.Utils.toString(params.param3), import_eth_wallet19.Utils.toString(params.param4), params.payload);
+    return {
+      numerator: new import_eth_wallet19.BigNumber(result.numerator),
+      denominator: new import_eth_wallet19.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
+    let result = await this.methods("isSupported", params.param1, params.param2);
+    return result;
+  }
+};
+
+// src/contracts/OSWAP_OracleSigned.ts
+var import_eth_wallet20 = require("@ijstech/eth-wallet");
+var Bin20 = require_OSWAP_OracleSigned();
+var OSWAP_OracleSigned = class extends import_eth_wallet20.Contract {
+  constructor(wallet, address) {
+    super(wallet, address, Bin20.abi, Bin20.bytecode);
+  }
+  deploy(signer) {
+    return this._deploy(signer);
+  }
+  async decimals() {
+    let result = await this.methods("decimals");
+    return new import_eth_wallet20.BigNumber(result);
+  }
+  async getLatestPrice(params) {
+    let result = await this.methods("getLatestPrice", params.from, params.to, params.payload);
+    return new import_eth_wallet20.BigNumber(result);
+  }
+  async getRatio(params) {
+    let result = await this.methods("getRatio", params.from, params.to, import_eth_wallet20.Utils.toString(params.param3), import_eth_wallet20.Utils.toString(params.param4), params.payload);
+    return {
+      numerator: new import_eth_wallet20.BigNumber(result.numerator),
+      denominator: new import_eth_wallet20.BigNumber(result.denominator)
+    };
+  }
+  async isSupported(params) {
     let result = await this.methods("isSupported", params.param1, params.param2);
     return result;
   }
   async sequenceNumber() {
     let result = await this.methods("sequenceNumber");
-    return new import_eth_wallet12.BigNumber(result);
+    return new import_eth_wallet20.BigNumber(result);
   }
   async signer() {
     let result = await this.methods("signer");
@@ -733,28 +1257,28 @@ var OSWAP_OracleSigned = class extends import_eth_wallet12.Contract {
 };
 
 // src/contracts/OSWAP_OracleUnity.ts
-var import_eth_wallet13 = require("@ijstech/eth-wallet");
-var Bin13 = require_OSWAP_OracleUnity();
-var OSWAP_OracleUnity = class extends import_eth_wallet13.Contract {
+var import_eth_wallet21 = require("@ijstech/eth-wallet");
+var Bin21 = require_OSWAP_OracleUnity();
+var OSWAP_OracleUnity = class extends import_eth_wallet21.Contract {
   constructor(wallet, address) {
-    super(wallet, address, Bin13.abi, Bin13.bytecode);
+    super(wallet, address, Bin21.abi, Bin21.bytecode);
   }
   deploy() {
     return this._deploy();
   }
   async decimals() {
     let result = await this.methods("decimals");
-    return new import_eth_wallet13.BigNumber(result);
+    return new import_eth_wallet21.BigNumber(result);
   }
   async getLatestPrice(params) {
     let result = await this.methods("getLatestPrice", params.param1, params.param2, params.param3);
-    return new import_eth_wallet13.BigNumber(result);
+    return new import_eth_wallet21.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.methods("getRatio", params.param1, params.param2, import_eth_wallet13.Utils.toString(params.param3), import_eth_wallet13.Utils.toString(params.param4), params.param5);
+    let result = await this.methods("getRatio", params.param1, params.param2, import_eth_wallet21.Utils.toString(params.param3), import_eth_wallet21.Utils.toString(params.param4), params.param5);
     return {
-      numerator: new import_eth_wallet13.BigNumber(result.numerator),
-      denominator: new import_eth_wallet13.BigNumber(result.denominator)
+      numerator: new import_eth_wallet21.BigNumber(result.numerator),
+      denominator: new import_eth_wallet21.BigNumber(result.denominator)
     };
   }
   async isSupported(params) {

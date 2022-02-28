@@ -36,29 +36,12 @@ contract MockPriceGuardPair is IPair {
     }
 }
 
-contract OSWAP_OracleChainlinkPriceGuardTestnet is OSWAP_OracleChainlinkTestnet, OSWAP_OracleChainlinkPriceGuardBase {
-    constructor(address _weth, address wethPriceFeed, address[] memory _tokens, address[] memory _pricefeeds, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
-        OSWAP_OracleChainlinkTestnet(_weth, _tokens, _pricefeeds)
-        OSWAP_OracleChainlinkPriceGuardBase(wethPriceFeed, _factory, _maxValue, _deviation, _useAmmPrice)
-    {
-        decimals[_weth] = IERC20(_weth).decimals();
-        uint256 length = _tokens.length;
-        for (uint256 i = 0 ; i < length ; i++) {
-            address token = _tokens[i];
-            decimals[token] = IERC20(token).decimals();
-        }
-    }
-    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkBase, OSWAP_OracleChainlinkPriceGuardBase) returns (uint256 numerator, uint256 denominator) {
-        return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
-    }
-}
 contract OSWAP_OracleChainlinkPriceGuardKovan is OSWAP_OracleChainlinkKovan, OSWAP_OracleChainlinkPriceGuardBase {
     address constant kovanWethPriceFeed = 0x9326BFA02ADD2366b30bacB125260Af641031331;
-    constructor(address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+    constructor(address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice) 
         public
         OSWAP_OracleChainlinkKovan(dai, usdc, usdt)
-        OSWAP_OracleChainlinkPriceGuardBase(kovanWethPriceFeed, _factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardBase(kovanWethPriceFeed, _factory, _maxValue, _deviation, _returnAmmPrice)
     {}
     function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkBase, OSWAP_OracleChainlinkPriceGuardBase) returns (uint256 numerator, uint256 denominator) {
         return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
@@ -66,40 +49,24 @@ contract OSWAP_OracleChainlinkPriceGuardKovan is OSWAP_OracleChainlinkKovan, OSW
 }
 contract OSWAP_OracleChainlinkPriceGuardBinanceTestnet is OSWAP_OracleChainlinkBinanceTestnet, OSWAP_OracleChainlinkPriceGuardBase {
     address constant bscWethPriceFeed = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526;
-    constructor(address wbnb, address dai, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
+    constructor(address wbnb, address dai, address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice) 
         public
         OSWAP_OracleChainlinkBinanceTestnet(wbnb, dai)
-        OSWAP_OracleChainlinkPriceGuardBase(bscWethPriceFeed, _factory, _maxValue, _deviation, _useAmmPrice)
-    {}
+        OSWAP_OracleChainlinkPriceGuardBase(bscWethPriceFeed, _factory, _maxValue, _deviation, _returnAmmPrice)
+    {
+        // WBNB based
+        decimals[dai] = 18;
+    }
     function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkBase, OSWAP_OracleChainlinkPriceGuardBase) returns (uint256 numerator, uint256 denominator) {
         return OSWAP_OracleChainlinkPriceGuardBase.getRatio(from, to, fromAmount, toAmount, payload);
     }
 }
 
-contract OSWAP_OracleChainlinkPriceGuardFiatTestnet is OSWAP_OracleChainlinkFiatTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
-    constructor(address[] memory _tokens, address[] memory _pricefeeds, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
-        OSWAP_OracleChainlinkFiatTestnet(_tokens, _pricefeeds)
-        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
-    {
-        uint256 length = _tokens.length;
-        for (uint256 i = 0 ; i < length ; i++) {
-            address token = _tokens[i];
-            decimals[token] = IERC20(token).decimals();
-        }
-    }
-    function getRatio(address from, address to, uint256 fromAmount, uint256 toAmount, bytes calldata payload) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (uint256 numerator, uint256 denominator) {
-        return OSWAP_OracleChainlinkPriceGuardFiatBase.getRatio(from, to, fromAmount, toAmount, payload);
-    }
-    function isSupported(address from, address to) public view override (OSWAP_OracleChainlinkFiatBase, OSWAP_OracleChainlinkPriceGuardFiatBase) returns (bool supported) {
-        return OSWAP_OracleChainlinkFiatBase.isSupported(from, to);
-    }
-}
 contract OSWAP_OracleChainlinkPriceGuardFiatKovan is OSWAP_OracleChainlinkFiatKovan, OSWAP_OracleChainlinkPriceGuardFiatBase {
-    constructor(address eth, address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
+    constructor(address eth, address dai, address usdc, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice) 
         OSWAP_OracleChainlinkFiatKovan(eth, dai, usdt, usdc)
-        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _returnAmmPrice)
+        public 
     {
         decimals[eth] = 18;
         decimals[dai] = 18;
@@ -115,11 +82,12 @@ contract OSWAP_OracleChainlinkPriceGuardFiatKovan is OSWAP_OracleChainlinkFiatKo
     }
 }
 contract OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBinanceTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
-    constructor(address wbnb, address busd, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
+    constructor(address wbnb, address busd, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice) 
         OSWAP_OracleChainlinkFiatBinanceTestnet(wbnb, busd, usdt)
-        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _returnAmmPrice)
+        public 
     {
+        // USD based
         decimals[wbnb] = 18;
         decimals[busd] = 18;
         decimals[usdt] = 6;
@@ -134,10 +102,10 @@ contract OSWAP_OracleChainlinkPriceGuardFiatBinanceTestnet is OSWAP_OracleChainl
 }
 
 contract OSWAP_OracleChainlinkPriceGuardFiatAvalancheTestnet is OSWAP_OracleChainlinkFiatAvalancheTestnet, OSWAP_OracleChainlinkPriceGuardFiatBase {
-    constructor(address wavax, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _useAmmPrice) 
-        public 
+    constructor(address wavax, address usdt, address _factory, uint256 _maxValue, uint256 _deviation, bool _returnAmmPrice) 
         OSWAP_OracleChainlinkFiatAvalancheTestnet(wavax, usdt)
-        OSWAP_OracleChainlinkPriceGuardBase(address(0), _factory, _maxValue, _deviation, _useAmmPrice)
+        OSWAP_OracleChainlinkPriceGuardFiatBase(_factory, _maxValue, _deviation, _returnAmmPrice)
+        public 
     {
         decimals[wavax] = 18;
         decimals[usdt] = 6;

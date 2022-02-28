@@ -17,35 +17,6 @@ contract OSWAP_OracleChainlinkV1Testnet is OSWAP_OracleChainlinkV1Base {
         }
     }
 }
-contract OSWAP_OracleChainlinkTestnet is OSWAP_OracleChainlinkBase {
-    constructor(address _weth, address[] memory _tokens, address[] memory pricefeed) 
-        OSWAP_OracleChainlinkBase(_weth) 
-        public 
-    {
-        require(_tokens.length == pricefeed.length, "Array length not match");
-        uint256 length = _tokens.length;
-        for (uint256 i = 0 ; i < length ; i++ ) {
-            address token = _tokens[i];
-            require(priceFeedAddresses[token] == address(0), "price feed already exists");
-            priceFeedAddresses[token] = pricefeed[i];
-        }
-    }
-}
-
-contract OSWAP_OracleChainlinkFiatTestnet is OSWAP_OracleChainlinkFiatBase {
-    constructor(address[] memory _tokens, address[] memory pricefeed) 
-        OSWAP_OracleChainlinkBase(address(0))
-        public 
-    {
-        require(_tokens.length == pricefeed.length, "Array length not match");
-        uint256 length = _tokens.length;
-        for (uint256 i = 0 ; i < length ; i++ ) {
-            address token = _tokens[i];
-            require(priceFeedAddresses[token] == address(0), "price feed already exists");
-            priceFeedAddresses[token] = pricefeed[i];
-        }
-    }
-}
 
 contract OSWAP_OracleChainlinkKovan is OSWAP_OracleChainlinkBase {
     address public constant _WETH = 0xd0A1E359811322d97991E03f863a0C30C2cF029C;
@@ -110,7 +81,7 @@ contract OSWAP_OracleChainlinkBinanceTestnet is OSWAP_OracleChainlinkBase {
 
 contract OSWAP_OracleChainlinkFiatKovan is OSWAP_OracleChainlinkFiatBase {
     constructor(address eth, address dai, address usdc, address usdt) 
-        OSWAP_OracleChainlinkBase(address(0)) 
+        OSWAP_OracleChainlinkFiatBase() 
         public 
     {
         // USD based
@@ -150,7 +121,7 @@ contract OSWAP_OracleChainlinkFiatKovan is OSWAP_OracleChainlinkFiatBase {
 
 contract OSWAP_OracleChainlinkFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBase {
     constructor(address wbnb, address busd, address usdt) 
-        OSWAP_OracleChainlinkBase(address(0)) 
+        OSWAP_OracleChainlinkFiatBase() 
         public 
     {
         // Using the list of Chainlink symbol to address from 
@@ -193,7 +164,7 @@ contract OSWAP_OracleChainlinkFiatBinanceTestnet is OSWAP_OracleChainlinkFiatBas
 
 contract OSWAP_OracleChainlinkFiatAvalancheTestnet is OSWAP_OracleChainlinkFiatBase {
     constructor(address wavax, address usdt) 
-        OSWAP_OracleChainlinkBase(address(0)) 
+        OSWAP_OracleChainlinkFiatBase() 
         public 
     {
         // Using the list of Chainlink symbol to address from 

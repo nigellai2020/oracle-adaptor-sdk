@@ -1,6 +1,6 @@
-import { Wallet, Contract, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, BigNumber } from "@ijstech/eth-wallet";
 export declare class OSWAP_OracleChainlinkPriceGuardBinance extends Contract {
-    constructor(wallet: Wallet, address?: string);
+    constructor(wallet: IWallet, address?: string);
     deploy(params: {
         factory: string;
         maxValue: number | BigNumber;
@@ -49,4 +49,5 @@ export declare class OSWAP_OracleChainlinkPriceGuardBinance extends Contract {
     returnAmmPrice(): Promise<boolean>;
     wethDecimals(): Promise<BigNumber>;
     wethPriceFeed(): Promise<string>;
+    private assign;
 }

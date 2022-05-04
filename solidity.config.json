@@ -1,0 +1,8 @@
+{
+    "version": "0.6.11",
+    "optimizerRuns": 999999,
+    "sourceDir": "node_modules/@openswapdex/oracle-adaptor-core/contracts",
+    "outputDir": "src/contracts",
+    "outputObjects": "bytecode"
+}
+    

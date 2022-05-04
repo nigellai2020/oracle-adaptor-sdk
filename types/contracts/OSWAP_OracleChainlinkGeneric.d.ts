@@ -1,6 +1,6 @@
-import { Wallet, Contract, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, BigNumber } from "@ijstech/eth-wallet";
 export declare class OSWAP_OracleChainlinkGeneric extends Contract {
-    constructor(wallet: Wallet, address?: string);
+    constructor(wallet: IWallet, address?: string);
     deploy(params: {
         weth: string;
         tokens: string[];
@@ -29,4 +29,5 @@ export declare class OSWAP_OracleChainlinkGeneric extends Contract {
         to: string;
     }): Promise<boolean>;
     priceFeedAddresses(param1: string): Promise<string>;
+    private assign;
 }

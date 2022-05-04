@@ -1,6 +1,6 @@
-import { Wallet, Contract, TransactionReceipt, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, TransactionReceipt, BigNumber } from "@ijstech/eth-wallet";
 export declare class OSWAP_OracleSigned extends Contract {
-    constructor(wallet: Wallet, address?: string);
+    constructor(wallet: IWallet, address?: string);
     deploy(signer: string): Promise<string>;
     decimals(): Promise<BigNumber>;
     getLatestPrice(params: {
@@ -24,9 +24,27 @@ export declare class OSWAP_OracleSigned extends Contract {
     }): Promise<boolean>;
     sequenceNumber(): Promise<BigNumber>;
     signer(): Promise<string>;
-    updateSequenceNumber(params: {
+    updateSequenceNumber_send(params: {
         from: string;
         to: string;
         payload: string;
     }): Promise<TransactionReceipt>;
+    updateSequenceNumber_call(params: {
+        from: string;
+        to: string;
+        payload: string;
+    }): Promise<void>;
+    updateSequenceNumber: {
+        (params: {
+            from: string;
+            to: string;
+            payload: string;
+        }): Promise<TransactionReceipt>;
+        call: (params: {
+            from: string;
+            to: string;
+            payload: string;
+        }) => Promise<void>;
+    };
+    private assign;
 }

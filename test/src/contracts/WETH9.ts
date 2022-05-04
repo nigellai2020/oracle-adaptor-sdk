@@ -1,9 +1,10 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
-const Bin = require("../../bin/WETH9.json");
+import {IWallet, Contract, Transaction, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
+import Bin from "./WETH9.json";
 
 export class WETH9 extends Contract{
-    constructor(wallet: Wallet, address?: string){
+    constructor(wallet: IWallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
+        this.assign()
     }
     deploy(): Promise<string>{
         return this._deploy();
@@ -55,48 +56,95 @@ export class WETH9 extends Contract{
         };
     }
     async allowance(params:{param1:string,param2:string}): Promise<BigNumber>{
-        let result = await this.methods('allowance',params.param1,params.param2);
+        let result = await this.call('allowance',[params.param1,params.param2]);
         return new BigNumber(result);
     }
-    async approve(params:{guy:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
-        let result = await this.methods('approve',params.guy,Utils.toString(params.wad));
+    async approve_send(params:{guy:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
+        let result = await this.send('approve',[params.guy,Utils.toString(params.wad)]);
         return result;
     }
+    async approve_call(params:{guy:string,wad:number|BigNumber}): Promise<boolean>{
+        let result = await this.call('approve',[params.guy,Utils.toString(params.wad)]);
+        return result;
+    }
+    approve: {
+        (params:{guy:string,wad:number|BigNumber}): Promise<TransactionReceipt>;
+        call: (params:{guy:string,wad:number|BigNumber}) => Promise<boolean>;
+    }
     async balanceOf(param1:string): Promise<BigNumber>{
-        let result = await this.methods('balanceOf',param1);
+        let result = await this.call('balanceOf',[param1]);
         return new BigNumber(result);
     }
     async decimals(): Promise<BigNumber>{
-        let result = await this.methods('decimals');
+        let result = await this.call('decimals');
         return new BigNumber(result);
     }
-    async deposit(_value:number|BigNumber): Promise<TransactionReceipt>{
-        let result = await this.methods('deposit',_value);
+    async deposit_send(_value:number|BigNumber): Promise<TransactionReceipt>{
+        let result = await this.send('deposit', [], {value:_value});
         return result;
     }
+    async deposit_call(_value:number|BigNumber): Promise<void>{
+        let result = await this.call('deposit', [], {value:_value});
+        return;
+    }
+    deposit: {
+        (_value:number|BigNumber): Promise<TransactionReceipt>;
+        call: (_value:number|BigNumber) => Promise<void>;
+    }
     async name(): Promise<string>{
-        let result = await this.methods('name');
+        let result = await this.call('name');
         return result;
     }
     async symbol(): Promise<string>{
-        let result = await this.methods('symbol');
+        let result = await this.call('symbol');
         return result;
     }
     async totalSupply(): Promise<BigNumber>{
-        let result = await this.methods('totalSupply');
+        let result = await this.call('totalSupply');
         return new BigNumber(result);
     }
-    async transfer(params:{dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
-        let result = await this.methods('transfer',params.dst,Utils.toString(params.wad));
+    async transfer_send(params:{dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
+        let result = await this.send('transfer',[params.dst,Utils.toString(params.wad)]);
         return result;
     }
-    async transferFrom(params:{src:string,dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
-        let result = await this.methods('transferFrom',params.src,params.dst,Utils.toString(params.wad));
+    async transfer_call(params:{dst:string,wad:number|BigNumber}): Promise<boolean>{
+        let result = await this.call('transfer',[params.dst,Utils.toString(params.wad)]);
         return result;
     }
-    async withdraw(wad:number|BigNumber): Promise<TransactionReceipt>{
-        let result = await this.methods('withdraw',Utils.toString(wad));
+    transfer: {
+        (params:{dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>;
+        call: (params:{dst:string,wad:number|BigNumber}) => Promise<boolean>;
+    }
+    async transferFrom_send(params:{src:string,dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>{
+        let result = await this.send('transferFrom',[params.src,params.dst,Utils.toString(params.wad)]);
         return result;
+    }
+    async transferFrom_call(params:{src:string,dst:string,wad:number|BigNumber}): Promise<boolean>{
+        let result = await this.call('transferFrom',[params.src,params.dst,Utils.toString(params.wad)]);
+        return result;
+    }
+    transferFrom: {
+        (params:{src:string,dst:string,wad:number|BigNumber}): Promise<TransactionReceipt>;
+        call: (params:{src:string,dst:string,wad:number|BigNumber}) => Promise<boolean>;
+    }
+    async withdraw_send(wad:number|BigNumber): Promise<TransactionReceipt>{
+        let result = await this.send('withdraw',[Utils.toString(wad)]);
+        return result;
+    }
+    async withdraw_call(wad:number|BigNumber): Promise<void>{
+        let result = await this.call('withdraw',[Utils.toString(wad)]);
+        return;
+    }
+    withdraw: {
+        (wad:number|BigNumber): Promise<TransactionReceipt>;
+        call: (wad:number|BigNumber) => Promise<void>;
+    }
+    private assign(){
+        this.approve = Object.assign(this.approve_send, {call:this.approve_call});
+        this.deposit = Object.assign(this.deposit_send, {call:this.deposit_call});
+        this.transfer = Object.assign(this.transfer_send, {call:this.transfer_call});
+        this.transferFrom = Object.assign(this.transferFrom_send, {call:this.transferFrom_call});
+        this.withdraw = Object.assign(this.withdraw_send, {call:this.withdraw_call});
     }
 }
 export module WETH9{

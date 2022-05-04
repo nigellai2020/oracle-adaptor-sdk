@@ -12,7 +12,7 @@ const config: HardhatUserConfig = {
     }
   },
   paths: {
-    sources: "./contracts-test"
+    sources: "./test/contracts"
   }
 };
 

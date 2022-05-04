@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build:contracts": "sol2ts solidity.config.json",
-    "build:testContracts": "eth-wallet-build 0.6.11 contracts-test test/bin test/src/contracts",
+    "build:testContracts": "sol2ts solidity-test.config.json",
     "build:lib": "tsc && node esbuild.bundle",
-    "_build": "node tools/compile 0.6.11 contracts-test build \"{\\\"\\\":\\\"/../\\\"}\"",
-    "_build:testContracts": "eth-wallet-build 0.6.11 test/contracts test/bin test/src/contracts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test"
   },
   "repository": {
     "type": "git",

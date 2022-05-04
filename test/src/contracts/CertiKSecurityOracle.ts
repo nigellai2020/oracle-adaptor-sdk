@@ -1,9 +1,10 @@
-import {Wallet, Contract, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
-const Bin = require("../../bin/CertiKSecurityOracle.json");
+import {IWallet, Contract, Transaction, TransactionReceipt, Utils, BigNumber, Event} from "@ijstech/eth-wallet";
+import Bin from "./CertiKSecurityOracle.json";
 
 export class CertiKSecurityOracle extends Contract{
-    constructor(wallet: Wallet, address?: string){
+    constructor(wallet: IWallet, address?: string){
         super(wallet, address, Bin.abi, Bin.bytecode);
+        this.assign()
     }
     deploy(): Promise<string>{
         return this._deploy();
@@ -62,53 +63,109 @@ export class CertiKSecurityOracle extends Contract{
             _event: event
         };
     }
-    async batchPushResult(params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}): Promise<TransactionReceipt>{
-        let result = await this.methods('batchPushResult',params.contractAddresses,params.functionSignatures,Utils.toString(params.scores),Utils.toString(params.expirations));
+    async batchPushResult_send(params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}): Promise<TransactionReceipt>{
+        let result = await this.send('batchPushResult',[params.contractAddresses,params.functionSignatures,Utils.toString(params.scores),Utils.toString(params.expirations)]);
         return result;
     }
+    async batchPushResult_call(params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}): Promise<void>{
+        let result = await this.call('batchPushResult',[params.contractAddresses,params.functionSignatures,Utils.toString(params.scores),Utils.toString(params.expirations)]);
+        return;
+    }
+    batchPushResult: {
+        (params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}): Promise<TransactionReceipt>;
+        call: (params:{contractAddresses:string[],functionSignatures:string[],scores:(number|BigNumber)[],expirations:(number|BigNumber)[]}) => Promise<void>;
+    }
     async defaultScore(): Promise<BigNumber>{
-        let result = await this.methods('defaultScore');
+        let result = await this.call('defaultScore');
         return new BigNumber(result);
     }
     async getSecurityScore(contractAddress:string): Promise<BigNumber>{
-        let result = await this.methods('getSecurityScore',contractAddress);
+        let result = await this.call('getSecurityScore',[contractAddress]);
         return new BigNumber(result);
     }
     async getSecurityScore_1(params:{contractAddress:string,functionSignature:string}): Promise<BigNumber>{
-        let result = await this.methods('getSecurityScore',params.contractAddress,params.functionSignature);
+        let result = await this.call('getSecurityScore',[params.contractAddress,params.functionSignature]);
         return new BigNumber(result);
     }
     async getSecurityScoreBytes4(params:{contractAddress:string,functionSignature:string}): Promise<BigNumber>{
-        let result = await this.methods('getSecurityScoreBytes4',params.contractAddress,params.functionSignature);
+        let result = await this.call('getSecurityScoreBytes4',[params.contractAddress,params.functionSignature]);
         return new BigNumber(result);
     }
     async getSecurityScores(params:{addresses:string[],functionSignatures:string[]}): Promise<BigNumber[]>{
-        let result = await this.methods('getSecurityScores',params.addresses,params.functionSignatures);
+        let result = await this.call('getSecurityScores',[params.addresses,params.functionSignatures]);
+        return result.map(e=>new BigNumber(e));
+    }
+    async initialize_send(): Promise<TransactionReceipt>{
+        let result = await this.send('initialize');
         return result;
     }
-    async initialize(): Promise<TransactionReceipt>{
-        let result = await this.methods('initialize');
-        return result;
+    async initialize_call(): Promise<void>{
+        let result = await this.call('initialize');
+        return;
+    }
+    initialize: {
+        (): Promise<TransactionReceipt>;
+        call: () => Promise<void>;
     }
     async owner(): Promise<string>{
-        let result = await this.methods('owner');
+        let result = await this.call('owner');
         return result;
     }
-    async pushResult(params:{contractAddress:string,functionSignature:string,score:number|BigNumber,expiration:number|BigNumber}): Promise<TransactionReceipt>{
-        let result = await this.methods('pushResult',params.contractAddress,params.functionSignature,Utils.toString(params.score),Utils.toString(params.expiration));
+    async pushResult_send(params:{contractAddress:string,functionSignature:string,score:number|BigNumber,expiration:number|BigNumber}): Promise<TransactionReceipt>{
+        let result = await this.send('pushResult',[params.contractAddress,params.functionSignature,Utils.toString(params.score),Utils.toString(params.expiration)]);
         return result;
     }
-    async renounceOwnership(): Promise<TransactionReceipt>{
-        let result = await this.methods('renounceOwnership');
+    async pushResult_call(params:{contractAddress:string,functionSignature:string,score:number|BigNumber,expiration:number|BigNumber}): Promise<void>{
+        let result = await this.call('pushResult',[params.contractAddress,params.functionSignature,Utils.toString(params.score),Utils.toString(params.expiration)]);
+        return;
+    }
+    pushResult: {
+        (params:{contractAddress:string,functionSignature:string,score:number|BigNumber,expiration:number|BigNumber}): Promise<TransactionReceipt>;
+        call: (params:{contractAddress:string,functionSignature:string,score:number|BigNumber,expiration:number|BigNumber}) => Promise<void>;
+    }
+    async renounceOwnership_send(): Promise<TransactionReceipt>{
+        let result = await this.send('renounceOwnership');
         return result;
     }
-    async transferOwnership(newOwner:string): Promise<TransactionReceipt>{
-        let result = await this.methods('transferOwnership',newOwner);
+    async renounceOwnership_call(): Promise<void>{
+        let result = await this.call('renounceOwnership');
+        return;
+    }
+    renounceOwnership: {
+        (): Promise<TransactionReceipt>;
+        call: () => Promise<void>;
+    }
+    async transferOwnership_send(newOwner:string): Promise<TransactionReceipt>{
+        let result = await this.send('transferOwnership',[newOwner]);
         return result;
     }
-    async updateDefaultScore(score:number|BigNumber): Promise<TransactionReceipt>{
-        let result = await this.methods('updateDefaultScore',Utils.toString(score));
+    async transferOwnership_call(newOwner:string): Promise<void>{
+        let result = await this.call('transferOwnership',[newOwner]);
+        return;
+    }
+    transferOwnership: {
+        (newOwner:string): Promise<TransactionReceipt>;
+        call: (newOwner:string) => Promise<void>;
+    }
+    async updateDefaultScore_send(score:number|BigNumber): Promise<TransactionReceipt>{
+        let result = await this.send('updateDefaultScore',[Utils.toString(score)]);
         return result;
+    }
+    async updateDefaultScore_call(score:number|BigNumber): Promise<void>{
+        let result = await this.call('updateDefaultScore',[Utils.toString(score)]);
+        return;
+    }
+    updateDefaultScore: {
+        (score:number|BigNumber): Promise<TransactionReceipt>;
+        call: (score:number|BigNumber) => Promise<void>;
+    }
+    private assign(){
+        this.batchPushResult = Object.assign(this.batchPushResult_send, {call:this.batchPushResult_call});
+        this.initialize = Object.assign(this.initialize_send, {call:this.initialize_call});
+        this.pushResult = Object.assign(this.pushResult_send, {call:this.pushResult_call});
+        this.renounceOwnership = Object.assign(this.renounceOwnership_send, {call:this.renounceOwnership_call});
+        this.transferOwnership = Object.assign(this.transferOwnership_send, {call:this.transferOwnership_call});
+        this.updateDefaultScore = Object.assign(this.updateDefaultScore_send, {call:this.updateDefaultScore_call});
     }
 }
 export module CertiKSecurityOracle{

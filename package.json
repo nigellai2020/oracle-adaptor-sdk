@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/openswapdex/oracle-adaptor-sdk#readme",
   "dependencies": {
-    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
-    "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git"
+    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
+    "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

@@ -1,6 +1,6 @@
 const Web3 = require("web3");
 const fs = require('fs');
-const networks = require("./networks");
+const networks = require("../data/networks");
 const path = require('path');
 const BigNumber = require('bignumber.js');
 const Config = fs.existsSync(path.join(__dirname,"./Config.json")) ? require("./Config") : {};

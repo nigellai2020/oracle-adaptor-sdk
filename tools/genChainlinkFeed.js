@@ -83,16 +83,16 @@ YFI / BNB	18	0xF841761481DF19831cCC851A54D8350aE6022583
 YFI / USD	8	0xD7eAa5Bf3013A96e3d515c055Dbd98DbdC8c620D
 YFII / USD	8	0xC94580FAaF145B2FD0ab5215031833c98D3B77E4
 `;
+feeds = feeds.trim().split('\n');
+console.log(feeds.length);
 
 // http://tokens.1inch.eth.link/
 // https://github.com/pancakeswap/pancake-swap-interface/blob/master/src/constants/token/pancakeswap.json
-let tokenlist = fs.readFileSync(process.argv[3], "utf8");
+// ["tokenlist1.json","tokenlist2.json"]
+// let tokenlist = [process.argv[3]].map(e=>{return JSON.parse(fs.readFileSync(e, "utf8")).tokens;}).reduce((a,b)=>{return [...a,...b]},[]);
+let tokenlist = fs.readdirSync('./tools/tokens/').filter(e=>e.endsWith(".json")).map(e=>{return JSON.parse(fs.readFileSync('./tools/tokens/'+e, "utf8")).tokens;}).reduce((a,b)=>{return [...a,...b]},[]);
+console.log(tokenlist.length);
 
-feeds = feeds.trim().split('\n');
-tokenlist = JSON.parse(tokenlist);
-
-console.log(feeds.length);
-console.log(tokenlist.tokens.length);
 let a=0,b=0,c=0;
 for (let i = 0 ; i < feeds.length ; i++) {
     let price = feeds[i].match(/([0-9a-zA-Z ]+)\s\/\s([0-9a-zA-Z]+)\s*([0-9]+)\s*(0x[0-9a-fA-F]{40})/);
@@ -100,21 +100,42 @@ for (let i = 0 ; i < feeds.length ; i++) {
         let token = price[1];
         let decimals = price[3];
         let feed = price[4];
-        let e = tokenlist.tokens.filter(e=>(e.chainId==chainId&&e.symbol.toLowerCase()==token.toLowerCase()));
+        let e = tokenlist.filter(e=>(e.chainId==chainId&&(
+            e.symbol.toLowerCase()==token.toLowerCase()
+            // || e.symbol.toLowerCase()==token.toLowerCase()+".e"
+            // || e.symbol.toLowerCase()=="w"+token.toLowerCase()
+            // || e.symbol.toLowerCase()=="w"+token.toLowerCase()+".e"
+        )));
+
         if (e.length == 0) {
             console.log(`// ${token} not found`);
             a++;
         } else if (e.length == 1) {
-            let address = e[0].address.toLowerCase().slice(2);
-            const addressHash = require('js-sha3').keccak256(address);
-            address = "0x" + address.split("").map((e,i)=>{return parseInt(addressHash[i], 16) > 7 ? e.toUpperCase() : e}).join('');
+            // let address = e[0].address.toLowerCase().slice(2);
+            // const addressHash = require('js-sha3').keccak256(address);
+            // address = "0x" + address.split("").map((e,i)=>{return parseInt(addressHash[i], 16) > 7 ? e.toUpperCase() : e}).join('');
+            let address = require("web3-utils").toChecksumAddress(e[0].address);
+
             console.log(`priceFeedAddresses[${address}] = ${feed}; // ${e[0].symbol}`);
-            // console.log(`priceFeedDecimals[${address}] = ${decimals};`);
+            // console.log(`priceFeedDecimals[${address}] = ${decimals}; // ${e[0].symbol}`);
             // console.log(`decimals[${address}] = ${e[0].decimals}; // ${e[0].symbol}`);
             b++;
         } else {
             console.log(token + " has more than one tokens ", e);
-            c++;
+            let seen = [];
+            for (let i = 0 ; i < e.length ; i++){
+                if (!seen.includes(e[i].address.toLowerCase())) {
+                    seen.push(e[i].address.toLowerCase());
+                    address = require("web3-utils").toChecksumAddress(e[i].address);
+
+                    console.log(`priceFeedAddresses[${address}] = ${feed}; // ${e[i].symbol}`);
+                    // console.log(`priceFeedDecimals[${address}] = ${decimals}; // ${e[i].symbol`);
+                    // console.log(`decimals[${address}] = ${e[0].decimals}; // ${e[i].symbol}`);
+                    b++;
+                } else {
+                    c++;
+                }
+            }
         }
     }
 }

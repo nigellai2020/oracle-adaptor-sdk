@@ -6,7 +6,7 @@ import mkdirp from "mkdirp"
 import {Wallet, Utils} from "@ijstech/eth-wallet";
 
 const Config = require("../Config");
-const networks = require("./networks");
+const networks = require("../data/networks");
 
 import * as OA from "../src/contracts";
 import * as OA2 from "../test/src/contracts";
@@ -65,10 +65,10 @@ async function run() {
                     var receipt = await chainlink.setRoundData({roundId:1, answer:Utils.toDecimals((1/1590).toString().substring(0,20)), startedAt:1, updatedAt:1, answeredInRound:1});
                     Address["MockChainlinkUSDT"] = MOCK_CL_USDT;
 
-                    Address["OAXDEX_OracleChainlink"] = await new OA2.OSWAP_OracleChainlinkTestnet(wallet).deploy({
+                    Address["OAXDEX_OracleChainlink"] = await new OA.OSWAP_OracleChainlinkGeneric(wallet).deploy({
                         weth:Address.WETH9,
                         tokens:[Address["DAI"], Address["USDC"], Address["USDT"]],
-                        pricefeed:[MOCK_CL_DAI, MOCK_CL_USDC, MOCK_CL_USDT]
+                        pricefeeds:[MOCK_CL_DAI, MOCK_CL_USDC, MOCK_CL_USDT]
                     });
                     break;
                 }

@@ -7,7 +7,7 @@ export class OSWAP_OracleChainlinkLimitedGeneric extends Contract{
         this.assign()
     }
     deploy(params:{factory:string,weth:string,token:string[],pricefeeds:string[]}): Promise<string>{
-        return this._deploy(params.factory,params.weth,params.token,params.pricefeeds);
+        return this.__deploy([params.factory,params.weth,params.token,params.pricefeeds]);
     }
     async WETH(): Promise<string>{
         let result = await this.call('WETH');
@@ -26,11 +26,11 @@ export class OSWAP_OracleChainlinkLimitedGeneric extends Contract{
         return result;
     }
     async getLatestPrice(params:{from:string,to:string,payload:string}): Promise<BigNumber>{
-        let result = await this.call('getLatestPrice',[params.from,params.to,params.payload]);
+        let result = await this.call('getLatestPrice',[params.from,params.to,Utils.stringToBytes(params.payload)]);
         return new BigNumber(result);
     }
     async getRatio(params:{from:string,to:string,fromAmount:number|BigNumber,toAmount:number|BigNumber,payload:string}): Promise<{numerator:BigNumber,denominator:BigNumber}>{
-        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),params.payload]);
+        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),Utils.stringToBytes(params.payload)]);
         return {
             numerator: new BigNumber(result.numerator),
             denominator: new BigNumber(result.denominator)

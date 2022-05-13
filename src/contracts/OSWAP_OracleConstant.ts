@@ -7,18 +7,18 @@ export class OSWAP_OracleConstant extends Contract{
         this.assign()
     }
     deploy(params:{token0:string[],token1:string[],price0:(number|BigNumber)[],price1:(number|BigNumber)[]}): Promise<string>{
-        return this._deploy(params.token0,params.token1,Utils.toString(params.price0),Utils.toString(params.price1));
+        return this.__deploy([params.token0,params.token1,Utils.toString(params.price0),Utils.toString(params.price1)]);
     }
     async decimals(): Promise<BigNumber>{
         let result = await this.call('decimals');
         return new BigNumber(result);
     }
     async getLatestPrice(params:{from:string,to:string,param3:string}): Promise<BigNumber>{
-        let result = await this.call('getLatestPrice',[params.from,params.to,params.param3]);
+        let result = await this.call('getLatestPrice',[params.from,params.to,Utils.stringToBytes(params.param3)]);
         return new BigNumber(result);
     }
     async getRatio(params:{from:string,to:string,param3:number|BigNumber,param4:number|BigNumber,payload:string}): Promise<{numerator:BigNumber,denominator:BigNumber}>{
-        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.param3),Utils.toString(params.param4),params.payload]);
+        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.param3),Utils.toString(params.param4),Utils.stringToBytes(params.payload)]);
         return {
             numerator: new BigNumber(result.numerator),
             denominator: new BigNumber(result.denominator)

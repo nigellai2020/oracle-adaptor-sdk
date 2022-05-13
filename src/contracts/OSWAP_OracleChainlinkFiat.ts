@@ -7,7 +7,7 @@ export class OSWAP_OracleChainlinkFiat extends Contract{
         this.assign()
     }
     deploy(): Promise<string>{
-        return this._deploy();
+        return this.__deploy();
     }
     async WETH(): Promise<string>{
         let result = await this.call('WETH');
@@ -22,11 +22,11 @@ export class OSWAP_OracleChainlinkFiat extends Contract{
         return new BigNumber(result);
     }
     async getLatestPrice(params:{from:string,to:string,payload:string}): Promise<BigNumber>{
-        let result = await this.call('getLatestPrice',[params.from,params.to,params.payload]);
+        let result = await this.call('getLatestPrice',[params.from,params.to,Utils.stringToBytes(params.payload)]);
         return new BigNumber(result);
     }
     async getRatio(params:{from:string,to:string,fromAmount:number|BigNumber,toAmount:number|BigNumber,payload:string}): Promise<{numerator:BigNumber,denominator:BigNumber}>{
-        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),params.payload]);
+        let result = await this.call('getRatio',[params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),Utils.stringToBytes(params.payload)]);
         return {
             numerator: new BigNumber(result.numerator),
             denominator: new BigNumber(result.denominator)

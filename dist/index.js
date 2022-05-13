@@ -1,4 +1,4 @@
-define(@openswapdex/oracle-adaptor-sdk, (require, exports)=>{
+define('@openswapdex/oracle-adaptor-sdk', (require, exports)=>{
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -75,18 +75,18 @@ var OSWAP_OracleChained = class extends import_eth_wallet.Contract {
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.from, params.to, import_eth_wallet.Utils.toString(params.count), params.paths, params.oracles);
+    return this.__deploy([params.from, params.to, import_eth_wallet.Utils.toString(params.count), params.paths, params.oracles]);
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet.Utils.toString(params.param3), import_eth_wallet.Utils.toString(params.param4), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet.Utils.toString(params.param3), import_eth_wallet.Utils.toString(params.param4), import_eth_wallet.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet.BigNumber(result.numerator),
       denominator: new import_eth_wallet.BigNumber(result.denominator)
@@ -138,7 +138,7 @@ var OSWAP_OracleChainlink = class extends import_eth_wallet2.Contract {
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -157,11 +157,11 @@ var OSWAP_OracleChainlink = class extends import_eth_wallet2.Contract {
     return new import_eth_wallet2.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet2.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet2.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet2.Utils.toString(params.param3), import_eth_wallet2.Utils.toString(params.param4), params.param5]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet2.Utils.toString(params.param3), import_eth_wallet2.Utils.toString(params.param4), import_eth_wallet2.Utils.stringToBytes(params.param5)]);
     return {
       numerator: new import_eth_wallet2.BigNumber(result.numerator),
       denominator: new import_eth_wallet2.BigNumber(result.denominator)
@@ -205,7 +205,7 @@ var OSWAP_OracleChainlinkBinance = class extends import_eth_wallet3.Contract {
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -224,11 +224,11 @@ var OSWAP_OracleChainlinkBinance = class extends import_eth_wallet3.Contract {
     return new import_eth_wallet3.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet3.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet3.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet3.Utils.toString(params.param3), import_eth_wallet3.Utils.toString(params.param4), params.param5]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet3.Utils.toString(params.param3), import_eth_wallet3.Utils.toString(params.param4), import_eth_wallet3.Utils.stringToBytes(params.param5)]);
     return {
       numerator: new import_eth_wallet3.BigNumber(result.numerator),
       denominator: new import_eth_wallet3.BigNumber(result.denominator)
@@ -271,7 +271,7 @@ var OSWAP_OracleChainlinkFiat = class extends import_eth_wallet4.Contract {
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -286,11 +286,11 @@ var OSWAP_OracleChainlinkFiat = class extends import_eth_wallet4.Contract {
     return new import_eth_wallet4.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet4.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet4.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet4.Utils.toString(params.fromAmount), import_eth_wallet4.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet4.Utils.toString(params.fromAmount), import_eth_wallet4.Utils.toString(params.toAmount), import_eth_wallet4.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet4.BigNumber(result.numerator),
       denominator: new import_eth_wallet4.BigNumber(result.denominator)
@@ -333,7 +333,7 @@ var OSWAP_OracleChainlinkFiatAvalanche = class extends import_eth_wallet5.Contra
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -348,11 +348,11 @@ var OSWAP_OracleChainlinkFiatAvalanche = class extends import_eth_wallet5.Contra
     return new import_eth_wallet5.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet5.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet5.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet5.Utils.toString(params.fromAmount), import_eth_wallet5.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet5.Utils.toString(params.fromAmount), import_eth_wallet5.Utils.toString(params.toAmount), import_eth_wallet5.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet5.BigNumber(result.numerator),
       denominator: new import_eth_wallet5.BigNumber(result.denominator)
@@ -395,7 +395,7 @@ var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet6.Contract
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -410,11 +410,11 @@ var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet6.Contract
     return new import_eth_wallet6.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet6.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet6.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet6.Utils.toString(params.fromAmount), import_eth_wallet6.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet6.Utils.toString(params.fromAmount), import_eth_wallet6.Utils.toString(params.toAmount), import_eth_wallet6.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet6.BigNumber(result.numerator),
       denominator: new import_eth_wallet6.BigNumber(result.denominator)
@@ -457,7 +457,7 @@ var OSWAP_OracleChainlinkFiatGeneric = class extends import_eth_wallet7.Contract
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.tokens, params.pricefeeds);
+    return this.__deploy([params.tokens, params.pricefeeds]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -472,11 +472,11 @@ var OSWAP_OracleChainlinkFiatGeneric = class extends import_eth_wallet7.Contract
     return new import_eth_wallet7.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet7.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet7.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet7.Utils.toString(params.fromAmount), import_eth_wallet7.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet7.Utils.toString(params.fromAmount), import_eth_wallet7.Utils.toString(params.toAmount), import_eth_wallet7.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet7.BigNumber(result.numerator),
       denominator: new import_eth_wallet7.BigNumber(result.denominator)
@@ -519,7 +519,7 @@ var OSWAP_OracleChainlinkGeneric = class extends import_eth_wallet8.Contract {
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.weth, params.tokens, params.pricefeeds);
+    return this.__deploy([params.weth, params.tokens, params.pricefeeds]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -534,11 +534,11 @@ var OSWAP_OracleChainlinkGeneric = class extends import_eth_wallet8.Contract {
     return new import_eth_wallet8.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet8.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet8.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet8.Utils.toString(params.param3), import_eth_wallet8.Utils.toString(params.param4), params.param5]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet8.Utils.toString(params.param3), import_eth_wallet8.Utils.toString(params.param4), import_eth_wallet8.Utils.stringToBytes(params.param5)]);
     return {
       numerator: new import_eth_wallet8.BigNumber(result.numerator),
       denominator: new import_eth_wallet8.BigNumber(result.denominator)
@@ -582,7 +582,7 @@ var OSWAP_OracleChainlinkLimitedGeneric = class extends import_eth_wallet9.Contr
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.factory, params.weth, params.token, params.pricefeeds);
+    return this.__deploy([params.factory, params.weth, params.token, params.pricefeeds]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -601,11 +601,11 @@ var OSWAP_OracleChainlinkLimitedGeneric = class extends import_eth_wallet9.Contr
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet9.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet9.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet9.Utils.toString(params.fromAmount), import_eth_wallet9.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet9.Utils.toString(params.fromAmount), import_eth_wallet9.Utils.toString(params.toAmount), import_eth_wallet9.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet9.BigNumber(result.numerator),
       denominator: new import_eth_wallet9.BigNumber(result.denominator)
@@ -657,7 +657,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatGeneric = class extends import_eth_wallet
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.tokens, params.pricefeeds, params.factory, import_eth_wallet10.Utils.toString(params.maxValue), import_eth_wallet10.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this.__deploy([params.tokens, params.pricefeeds, params.factory, import_eth_wallet10.Utils.toString(params.maxValue), import_eth_wallet10.Utils.toString(params.deviation), params.returnAmmPrice]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -680,7 +680,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatGeneric = class extends import_eth_wallet
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet10.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet10.BigNumber(result);
   }
   async getPriceInfo(params) {
@@ -692,7 +692,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatGeneric = class extends import_eth_wallet
     };
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet10.Utils.toString(params.fromAmount), import_eth_wallet10.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet10.Utils.toString(params.fromAmount), import_eth_wallet10.Utils.toString(params.toAmount), import_eth_wallet10.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet10.BigNumber(result.numerator),
       denominator: new import_eth_wallet10.BigNumber(result.denominator)
@@ -768,7 +768,7 @@ var OSWAP_OracleChainlinkPriceGuardGeneric = class extends import_eth_wallet11.C
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.weth, params.wethPriceFeed, params.tokens, params.pricefeeds, params.factory, import_eth_wallet11.Utils.toString(params.maxValue), import_eth_wallet11.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this.__deploy([params.weth, params.wethPriceFeed, params.tokens, params.pricefeeds, params.factory, import_eth_wallet11.Utils.toString(params.maxValue), import_eth_wallet11.Utils.toString(params.deviation), params.returnAmmPrice]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -791,7 +791,7 @@ var OSWAP_OracleChainlinkPriceGuardGeneric = class extends import_eth_wallet11.C
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet11.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet11.BigNumber(result);
   }
   async getPriceInfo(params) {
@@ -803,7 +803,7 @@ var OSWAP_OracleChainlinkPriceGuardGeneric = class extends import_eth_wallet11.C
     };
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet11.Utils.toString(params.fromAmount), import_eth_wallet11.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet11.Utils.toString(params.fromAmount), import_eth_wallet11.Utils.toString(params.toAmount), import_eth_wallet11.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet11.BigNumber(result.numerator),
       denominator: new import_eth_wallet11.BigNumber(result.denominator)
@@ -868,18 +868,18 @@ var OSWAP_OracleChainlinkV1Generic = class extends import_eth_wallet12.Contract 
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.weth, params.tokens, params.pricefeeds);
+    return this.__deploy([params.weth, params.tokens, params.pricefeeds]);
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet12.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet12.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet12.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet12.Utils.toString(params.param3), import_eth_wallet12.Utils.toString(params.param4), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet12.Utils.toString(params.param3), import_eth_wallet12.Utils.toString(params.param4), import_eth_wallet12.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet12.BigNumber(result.numerator),
       denominator: new import_eth_wallet12.BigNumber(result.denominator)
@@ -924,7 +924,7 @@ var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet13.Contract {
     this.assign();
   }
   deploy(factory) {
-    return this._deploy(factory);
+    return this.__deploy([factory]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -947,11 +947,11 @@ var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet13.Contract {
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet13.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet13.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet13.Utils.toString(params.fromAmount), import_eth_wallet13.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet13.Utils.toString(params.fromAmount), import_eth_wallet13.Utils.toString(params.toAmount), import_eth_wallet13.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet13.BigNumber(result.numerator),
       denominator: new import_eth_wallet13.BigNumber(result.denominator)
@@ -1004,7 +1004,7 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet14.C
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.factory, import_eth_wallet14.Utils.toString(params.maxValue), import_eth_wallet14.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this.__deploy([params.factory, import_eth_wallet14.Utils.toString(params.maxValue), import_eth_wallet14.Utils.toString(params.deviation), params.returnAmmPrice]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -1031,7 +1031,7 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet14.C
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet14.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet14.BigNumber(result);
   }
   async getPriceInfo(params) {
@@ -1043,7 +1043,7 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet14.C
     };
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet14.Utils.toString(params.fromAmount), import_eth_wallet14.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet14.Utils.toString(params.fromAmount), import_eth_wallet14.Utils.toString(params.toAmount), import_eth_wallet14.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet14.BigNumber(result.numerator),
       denominator: new import_eth_wallet14.BigNumber(result.denominator)
@@ -1119,7 +1119,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatAvalanche = class extends import_eth_wall
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.factory, import_eth_wallet15.Utils.toString(params.maxValue), import_eth_wallet15.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this.__deploy([params.factory, import_eth_wallet15.Utils.toString(params.maxValue), import_eth_wallet15.Utils.toString(params.deviation), params.returnAmmPrice]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -1142,7 +1142,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatAvalanche = class extends import_eth_wall
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet15.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet15.BigNumber(result);
   }
   async getPriceInfo(params) {
@@ -1154,7 +1154,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatAvalanche = class extends import_eth_wall
     };
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet15.Utils.toString(params.fromAmount), import_eth_wallet15.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet15.Utils.toString(params.fromAmount), import_eth_wallet15.Utils.toString(params.toAmount), import_eth_wallet15.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet15.BigNumber(result.numerator),
       denominator: new import_eth_wallet15.BigNumber(result.denominator)
@@ -1230,7 +1230,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.factory, import_eth_wallet16.Utils.toString(params.maxValue), import_eth_wallet16.Utils.toString(params.deviation), params.returnAmmPrice);
+    return this.__deploy([params.factory, import_eth_wallet16.Utils.toString(params.maxValue), import_eth_wallet16.Utils.toString(params.deviation), params.returnAmmPrice]);
   }
   async WETH() {
     let result = await this.call("WETH");
@@ -1253,7 +1253,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
     return result;
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet16.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet16.BigNumber(result);
   }
   async getPriceInfo(params) {
@@ -1265,7 +1265,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
     };
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet16.Utils.toString(params.fromAmount), import_eth_wallet16.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet16.Utils.toString(params.fromAmount), import_eth_wallet16.Utils.toString(params.toAmount), import_eth_wallet16.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet16.BigNumber(result.numerator),
       denominator: new import_eth_wallet16.BigNumber(result.denominator)
@@ -1330,18 +1330,18 @@ var OSWAP_OracleConstant = class extends import_eth_wallet17.Contract {
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.token0, params.token1, import_eth_wallet17.Utils.toString(params.price0), import_eth_wallet17.Utils.toString(params.price1));
+    return this.__deploy([params.token0, params.token1, import_eth_wallet17.Utils.toString(params.price0), import_eth_wallet17.Utils.toString(params.price1)]);
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet17.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.param3]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet17.Utils.stringToBytes(params.param3)]);
     return new import_eth_wallet17.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet17.Utils.toString(params.param3), import_eth_wallet17.Utils.toString(params.param4), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet17.Utils.toString(params.param3), import_eth_wallet17.Utils.toString(params.param4), import_eth_wallet17.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet17.BigNumber(result.numerator),
       denominator: new import_eth_wallet17.BigNumber(result.denominator)
@@ -1383,18 +1383,18 @@ var OSWAP_OracleConstantLimited = class extends import_eth_wallet18.Contract {
     this.assign();
   }
   deploy(params) {
-    return this._deploy(params.token0, params.token1, import_eth_wallet18.Utils.toString(params.price0), import_eth_wallet18.Utils.toString(params.price1), import_eth_wallet18.Utils.toString(params.limit0), import_eth_wallet18.Utils.toString(params.limit1));
+    return this.__deploy([params.token0, params.token1, import_eth_wallet18.Utils.toString(params.price0), import_eth_wallet18.Utils.toString(params.price1), import_eth_wallet18.Utils.toString(params.limit0), import_eth_wallet18.Utils.toString(params.limit1)]);
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet18.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.param3]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet18.Utils.stringToBytes(params.param3)]);
     return new import_eth_wallet18.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet18.Utils.toString(params.fromAmount), import_eth_wallet18.Utils.toString(params.toAmount), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet18.Utils.toString(params.fromAmount), import_eth_wallet18.Utils.toString(params.toAmount), import_eth_wallet18.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet18.BigNumber(result.numerator),
       denominator: new import_eth_wallet18.BigNumber(result.denominator)
@@ -1437,18 +1437,18 @@ var OSWAP_OracleSetYourOwnPrice = class extends import_eth_wallet19.Contract {
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet19.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.param1, params.param2, params.payload]);
+    let result = await this.call("getLatestPrice", [params.param1, params.param2, import_eth_wallet19.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet19.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet19.Utils.toString(params.param3), import_eth_wallet19.Utils.toString(params.param4), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet19.Utils.toString(params.param3), import_eth_wallet19.Utils.toString(params.param4), import_eth_wallet19.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet19.BigNumber(result.numerator),
       denominator: new import_eth_wallet19.BigNumber(result.denominator)
@@ -1487,18 +1487,18 @@ var OSWAP_OracleSigned = class extends import_eth_wallet20.Contract {
     this.assign();
   }
   deploy(signer) {
-    return this._deploy(signer);
+    return this.__deploy([signer]);
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet20.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.from, params.to, params.payload]);
+    let result = await this.call("getLatestPrice", [params.from, params.to, import_eth_wallet20.Utils.stringToBytes(params.payload)]);
     return new import_eth_wallet20.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet20.Utils.toString(params.param3), import_eth_wallet20.Utils.toString(params.param4), params.payload]);
+    let result = await this.call("getRatio", [params.from, params.to, import_eth_wallet20.Utils.toString(params.param3), import_eth_wallet20.Utils.toString(params.param4), import_eth_wallet20.Utils.stringToBytes(params.payload)]);
     return {
       numerator: new import_eth_wallet20.BigNumber(result.numerator),
       denominator: new import_eth_wallet20.BigNumber(result.denominator)
@@ -1517,11 +1517,11 @@ var OSWAP_OracleSigned = class extends import_eth_wallet20.Contract {
     return result;
   }
   async updateSequenceNumber_send(params) {
-    let result = await this.send("updateSequenceNumber", [params.from, params.to, params.payload]);
+    let result = await this.send("updateSequenceNumber", [params.from, params.to, import_eth_wallet20.Utils.stringToBytes(params.payload)]);
     return result;
   }
   async updateSequenceNumber_call(params) {
-    let result = await this.call("updateSequenceNumber", [params.from, params.to, params.payload]);
+    let result = await this.call("updateSequenceNumber", [params.from, params.to, import_eth_wallet20.Utils.stringToBytes(params.payload)]);
     return;
   }
   assign() {
@@ -1550,18 +1550,18 @@ var OSWAP_OracleUnity = class extends import_eth_wallet21.Contract {
     this.assign();
   }
   deploy() {
-    return this._deploy();
+    return this.__deploy();
   }
   async decimals() {
     let result = await this.call("decimals");
     return new import_eth_wallet21.BigNumber(result);
   }
   async getLatestPrice(params) {
-    let result = await this.call("getLatestPrice", [params.param1, params.param2, params.param3]);
+    let result = await this.call("getLatestPrice", [params.param1, params.param2, import_eth_wallet21.Utils.stringToBytes(params.param3)]);
     return new import_eth_wallet21.BigNumber(result);
   }
   async getRatio(params) {
-    let result = await this.call("getRatio", [params.param1, params.param2, import_eth_wallet21.Utils.toString(params.param3), import_eth_wallet21.Utils.toString(params.param4), params.param5]);
+    let result = await this.call("getRatio", [params.param1, params.param2, import_eth_wallet21.Utils.toString(params.param3), import_eth_wallet21.Utils.toString(params.param4), import_eth_wallet21.Utils.stringToBytes(params.param5)]);
     return {
       numerator: new import_eth_wallet21.BigNumber(result.numerator),
       denominator: new import_eth_wallet21.BigNumber(result.denominator)

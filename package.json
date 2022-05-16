@@ -1,5 +1,5 @@
 {
-  "name": "@openswapdex/oracle-adaptor-sdk",
+  "name": "@openswap/oracle-adaptor-sdk",
   "version": "0.0.2",
   "description": "",
   "main": "index.js",

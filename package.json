@@ -2,23 +2,16 @@
   "name": "@openswap/oracle-adaptor-sdk",
   "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "typings": "types/index.d.ts",
+  "main": "lib",
   "scripts": {
     "build:contracts": "sol2ts solidity.config.json",
     "build:testContracts": "sol2ts solidity-test.config.json",
     "build:lib": "tsc && node esbuild.bundle",
     "test": "npx hardhat test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/openswapdex/oracle-adaptor-sdk.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/openswapdex/oracle-adaptor-sdk/issues"
-  },
-  "homepage": "https://github.com/openswapdex/oracle-adaptor-sdk#readme",
   "dependencies": {
     "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
     "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git"

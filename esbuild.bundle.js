@@ -40,7 +40,7 @@ async function build() {
         plugins: [contractAbiPlugin],
     }).catch(() => process.exit(1));
     let content = await readFile('dist/index.js');
-    content = `define(${packageName}, (require, exports)=>{
+    content = `define('${packageName}', (require, exports)=>{
 ${content}
 })`;
     Fs.writeFileSync('dist/index.js', content);

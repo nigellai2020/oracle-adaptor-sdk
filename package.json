@@ -12,11 +12,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
-    "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git"
-  },
   "devDependencies": {
+    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
+    "@openswapdex/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@types/chai": "^4.2.18",

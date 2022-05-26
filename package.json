@@ -23,7 +23,7 @@
     "@types/node": "^15.3.0",
     "axios": "^0.21.4",
     "chai": "^4.3.4",
-    "esbuild": "^0.14.11",
+    "esbuild": "^0.13.4",
     "ethereum-waffle": "^3.3.0",
     "ethers": "^5.1.4",
     "hardhat": "^2.2.1",

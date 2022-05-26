@@ -1,28 +1,32 @@
-define("@openswap/oracle-adaptor-sdk", (require, exports)=>{
+define('@openswap/oracle-adaptor-sdk', (require, exports)=>{
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
+  __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+var __reExport = (target, module2, desc) => {
+  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+    for (let key of __getOwnPropNames(module2))
+      if (!__hasOwnProp.call(target, key) && key !== "default")
+        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
   }
-  return to;
+  return target;
 };
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __toModule = (module2) => {
+  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+};
 
 // src/index.ts
-var src_exports = {};
-__export(src_exports, {
+__export(exports, {
   Contracts: () => contracts_exports
 });
-module.exports = __toCommonJS(src_exports);
 
 // src/contracts/index.ts
 var contracts_exports = {};
@@ -51,7 +55,7 @@ __export(contracts_exports, {
 });
 
 // src/contracts/OSWAP_OracleChained.ts
-var import_eth_wallet = require("@ijstech/eth-wallet");
+var import_eth_wallet = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChained.json.ts
 var OSWAP_OracleChained_json_default = {
@@ -113,7 +117,7 @@ var OSWAP_OracleChained = class extends import_eth_wallet.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlink.ts
-var import_eth_wallet2 = require("@ijstech/eth-wallet");
+var import_eth_wallet2 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlink.json.ts
 var OSWAP_OracleChainlink_json_default = {
@@ -180,7 +184,7 @@ var OSWAP_OracleChainlink = class extends import_eth_wallet2.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlinkBinance.ts
-var import_eth_wallet3 = require("@ijstech/eth-wallet");
+var import_eth_wallet3 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkBinance.json.ts
 var OSWAP_OracleChainlinkBinance_json_default = {
@@ -247,7 +251,7 @@ var OSWAP_OracleChainlinkBinance = class extends import_eth_wallet3.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlinkFiat.ts
-var import_eth_wallet4 = require("@ijstech/eth-wallet");
+var import_eth_wallet4 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkFiat.json.ts
 var OSWAP_OracleChainlinkFiat_json_default = {
@@ -309,7 +313,7 @@ var OSWAP_OracleChainlinkFiat = class extends import_eth_wallet4.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlinkFiatAvalanche.ts
-var import_eth_wallet5 = require("@ijstech/eth-wallet");
+var import_eth_wallet5 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkFiatAvalanche.json.ts
 var OSWAP_OracleChainlinkFiatAvalanche_json_default = {
@@ -371,7 +375,7 @@ var OSWAP_OracleChainlinkFiatAvalanche = class extends import_eth_wallet5.Contra
 };
 
 // src/contracts/OSWAP_OracleChainlinkFiatBinance.ts
-var import_eth_wallet6 = require("@ijstech/eth-wallet");
+var import_eth_wallet6 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkFiatBinance.json.ts
 var OSWAP_OracleChainlinkFiatBinance_json_default = {
@@ -433,7 +437,7 @@ var OSWAP_OracleChainlinkFiatBinance = class extends import_eth_wallet6.Contract
 };
 
 // src/contracts/OSWAP_OracleChainlinkFiatGeneric.ts
-var import_eth_wallet7 = require("@ijstech/eth-wallet");
+var import_eth_wallet7 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkFiatGeneric.json.ts
 var OSWAP_OracleChainlinkFiatGeneric_json_default = {
@@ -495,7 +499,7 @@ var OSWAP_OracleChainlinkFiatGeneric = class extends import_eth_wallet7.Contract
 };
 
 // src/contracts/OSWAP_OracleChainlinkGeneric.ts
-var import_eth_wallet8 = require("@ijstech/eth-wallet");
+var import_eth_wallet8 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkGeneric.json.ts
 var OSWAP_OracleChainlinkGeneric_json_default = {
@@ -557,7 +561,7 @@ var OSWAP_OracleChainlinkGeneric = class extends import_eth_wallet8.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlinkLimitedGeneric.ts
-var import_eth_wallet9 = require("@ijstech/eth-wallet");
+var import_eth_wallet9 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkLimitedGeneric.json.ts
 var OSWAP_OracleChainlinkLimitedGeneric_json_default = {
@@ -624,7 +628,7 @@ var OSWAP_OracleChainlinkLimitedGeneric = class extends import_eth_wallet9.Contr
 };
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatGeneric.ts
-var import_eth_wallet10 = require("@ijstech/eth-wallet");
+var import_eth_wallet10 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatGeneric.json.ts
 var OSWAP_OracleChainlinkPriceGuardFiatGeneric_json_default = {
@@ -735,7 +739,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatGeneric = class extends import_eth_wallet
 };
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardGeneric.ts
-var import_eth_wallet11 = require("@ijstech/eth-wallet");
+var import_eth_wallet11 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardGeneric.json.ts
 var OSWAP_OracleChainlinkPriceGuardGeneric_json_default = {
@@ -846,7 +850,7 @@ var OSWAP_OracleChainlinkPriceGuardGeneric = class extends import_eth_wallet11.C
 };
 
 // src/contracts/OSWAP_OracleChainlinkV1Generic.ts
-var import_eth_wallet12 = require("@ijstech/eth-wallet");
+var import_eth_wallet12 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkV1Generic.json.ts
 var OSWAP_OracleChainlinkV1Generic_json_default = {
@@ -898,7 +902,7 @@ var OSWAP_OracleChainlinkV1Generic = class extends import_eth_wallet12.Contract 
 };
 
 // src/contracts/OSWAP_OracleChainlinkLimited.ts
-var import_eth_wallet13 = require("@ijstech/eth-wallet");
+var import_eth_wallet13 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkLimited.json.ts
 var OSWAP_OracleChainlinkLimited_json_default = {
@@ -970,7 +974,7 @@ var OSWAP_OracleChainlinkLimited = class extends import_eth_wallet13.Contract {
 };
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardBinance.ts
-var import_eth_wallet14 = require("@ijstech/eth-wallet");
+var import_eth_wallet14 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardBinance.json.ts
 var OSWAP_OracleChainlinkPriceGuardBinance_json_default = {
@@ -1086,7 +1090,7 @@ var OSWAP_OracleChainlinkPriceGuardBinance = class extends import_eth_wallet14.C
 };
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatAvalanche.ts
-var import_eth_wallet15 = require("@ijstech/eth-wallet");
+var import_eth_wallet15 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatAvalanche.json.ts
 var OSWAP_OracleChainlinkPriceGuardFiatAvalanche_json_default = {
@@ -1197,7 +1201,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatAvalanche = class extends import_eth_wall
 };
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.ts
-var import_eth_wallet16 = require("@ijstech/eth-wallet");
+var import_eth_wallet16 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleChainlinkPriceGuardFiatBinance.json.ts
 var OSWAP_OracleChainlinkPriceGuardFiatBinance_json_default = {
@@ -1308,7 +1312,7 @@ var OSWAP_OracleChainlinkPriceGuardFiatBinance = class extends import_eth_wallet
 };
 
 // src/contracts/OSWAP_OracleConstant.ts
-var import_eth_wallet17 = require("@ijstech/eth-wallet");
+var import_eth_wallet17 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleConstant.json.ts
 var OSWAP_OracleConstant_json_default = {
@@ -1360,7 +1364,7 @@ var OSWAP_OracleConstant = class extends import_eth_wallet17.Contract {
 };
 
 // src/contracts/OSWAP_OracleConstantLimited.ts
-var import_eth_wallet18 = require("@ijstech/eth-wallet");
+var import_eth_wallet18 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleConstantLimited.json.ts
 var OSWAP_OracleConstantLimited_json_default = {
@@ -1417,7 +1421,7 @@ var OSWAP_OracleConstantLimited = class extends import_eth_wallet18.Contract {
 };
 
 // src/contracts/OSWAP_OracleSetYourOwnPrice.ts
-var import_eth_wallet19 = require("@ijstech/eth-wallet");
+var import_eth_wallet19 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleSetYourOwnPrice.json.ts
 var OSWAP_OracleSetYourOwnPrice_json_default = {
@@ -1463,7 +1467,7 @@ var OSWAP_OracleSetYourOwnPrice = class extends import_eth_wallet19.Contract {
 };
 
 // src/contracts/OSWAP_OracleSigned.ts
-var import_eth_wallet20 = require("@ijstech/eth-wallet");
+var import_eth_wallet20 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleSigned.json.ts
 var OSWAP_OracleSigned_json_default = {
@@ -1530,7 +1534,7 @@ var OSWAP_OracleSigned = class extends import_eth_wallet20.Contract {
 };
 
 // src/contracts/OSWAP_OracleUnity.ts
-var import_eth_wallet21 = require("@ijstech/eth-wallet");
+var import_eth_wallet21 = __toModule(require("@ijstech/eth-wallet"));
 
 // src/contracts/OSWAP_OracleUnity.json.ts
 var OSWAP_OracleUnity_json_default = {

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.11;
 
-import "@openswapdex/oracle-adaptor-core/contracts/libraries/Ownable.sol";
+import "@openswap/oracle-adaptor-core/contracts/libraries/Ownable.sol";
 
 contract CertiKSecurityOracle is Ownable {
   event Init(uint8 defaultScore);

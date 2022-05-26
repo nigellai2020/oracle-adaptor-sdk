@@ -1,4 +1,4 @@
-define('@openswap/oracle-adaptor-sdk', (require, exports)=>{
+define("@openswap/oracle-adaptor-sdk", (require, exports)=>{
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;

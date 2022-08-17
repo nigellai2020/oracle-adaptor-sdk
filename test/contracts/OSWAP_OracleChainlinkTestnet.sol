@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity =0.6.11;
 
-import "@openswap/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkV1Base.sol";
-import "@openswap/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkBase.sol";
-import "@openswap/oracle-adaptor-core/contracts/OSWAP_OracleChainlinkFiatBase.sol";
+import "../../contracts/OSWAP_OracleChainlinkV1Base.sol";
+import "../../contracts/OSWAP_OracleChainlinkBase.sol";
+import "../../contracts/OSWAP_OracleChainlinkFiatBase.sol";
 
 contract OSWAP_OracleChainlinkV1Testnet is OSWAP_OracleChainlinkV1Base {
     constructor(address _weth, address[] memory _tokens, address[] memory pricefeed) public {

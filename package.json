@@ -1,10 +1,11 @@
 {
   "name": "@openswap/oracle-adaptor-sdk",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "description": "",
   "typings": "types/index.d.ts",
   "main": "lib",
   "scripts": {
+    "build": "npm run build:contracts && npm run build:lib",
     "build:contracts": "sol2ts solidity.config.json",
     "build:testContracts": "sol2ts solidity-test.config.json",
     "build:lib": "tsc && node esbuild.bundle",
@@ -13,8 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@ijstech/eth-wallet": "git+https://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:x-oauth-basic@github.com/ijstech/eth-wallet.git",
-    "@openswap/oracle-adaptor-core": "git+https://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:x-oauth-basic@github.com/openswapdex/oracle-adaptor-core.git",
+    "@ijstech/eth-wallet": "https://github.com/ijstech/eth-wallet",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@types/chai": "^4.2.18",

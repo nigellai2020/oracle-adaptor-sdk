@@ -1,4 +1,4 @@
-import { IWallet, Contract, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, BigNumber, TransactionOptions } from "@ijstech/eth-contract";
 export interface IGetLatestPriceParams {
     param1: string;
     param2: string;
@@ -17,21 +17,21 @@ export interface IIsSupportedParams {
 }
 export declare class OSWAP_OracleUnity extends Contract {
     constructor(wallet: IWallet, address?: string);
-    deploy(): Promise<string>;
+    deploy(options?: number | BigNumber | TransactionOptions): Promise<string>;
     decimals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     };
     getLatestPrice: {
-        (params: IGetLatestPriceParams): Promise<BigNumber>;
+        (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber>;
     };
     getRatio: {
-        (params: IGetRatioParams): Promise<{
+        (params: IGetRatioParams, options?: TransactionOptions): Promise<{
             numerator: BigNumber;
             denominator: BigNumber;
         }>;
     };
     isSupported: {
-        (params: IIsSupportedParams): Promise<boolean>;
+        (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean>;
     };
     private assign;
 }

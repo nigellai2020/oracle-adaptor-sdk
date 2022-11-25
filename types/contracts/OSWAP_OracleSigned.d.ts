@@ -1,4 +1,4 @@
-import { IWallet, Contract, TransactionReceipt, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, TransactionReceipt, BigNumber, TransactionOptions } from "@ijstech/eth-contract";
 export interface IGetLatestPriceParams {
     from: string;
     to: string;
@@ -22,31 +22,31 @@ export interface IUpdateSequenceNumberParams {
 }
 export declare class OSWAP_OracleSigned extends Contract {
     constructor(wallet: IWallet, address?: string);
-    deploy(signer: string): Promise<string>;
+    deploy(signer: string, options?: TransactionOptions): Promise<string>;
     decimals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     };
     getLatestPrice: {
-        (params: IGetLatestPriceParams): Promise<BigNumber>;
+        (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber>;
     };
     getRatio: {
-        (params: IGetRatioParams): Promise<{
+        (params: IGetRatioParams, options?: TransactionOptions): Promise<{
             numerator: BigNumber;
             denominator: BigNumber;
         }>;
     };
     isSupported: {
-        (params: IIsSupportedParams): Promise<boolean>;
+        (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean>;
     };
     sequenceNumber: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     };
     signer: {
-        (): Promise<string>;
+        (options?: TransactionOptions): Promise<string>;
     };
     updateSequenceNumber: {
-        (params: IUpdateSequenceNumberParams): Promise<TransactionReceipt>;
-        call: (params: IUpdateSequenceNumberParams) => Promise<void>;
+        (params: IUpdateSequenceNumberParams, options?: TransactionOptions): Promise<TransactionReceipt>;
+        call: (params: IUpdateSequenceNumberParams, options?: TransactionOptions) => Promise<void>;
     };
     private assign;
 }

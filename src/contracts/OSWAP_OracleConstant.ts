@@ -1,4 +1,4 @@
-import {IWallet, Contract, Transaction, TransactionReceipt, Utils, BigNumber, Event, IBatchRequestObj} from "@ijstech/eth-wallet";
+import {IWallet, Contract, Transaction, TransactionReceipt, BigNumber, Event, IBatchRequestObj, TransactionOptions} from "@ijstech/eth-contract";
 import Bin from "./OSWAP_OracleConstant.json";
 
 export interface IDeployParams {token0:string[];token1:string[];price0:(number|BigNumber)[];price1:(number|BigNumber)[]}
@@ -11,39 +11,39 @@ export class OSWAP_OracleConstant extends Contract{
         super(wallet, address, Bin.abi, Bin.bytecode);
         this.assign()
     }
-    deploy(params: IDeployParams): Promise<string>{
-        return this.__deploy([params.token0,params.token1,Utils.toString(params.price0),Utils.toString(params.price1)]);
+    deploy(params: IDeployParams, options?: TransactionOptions): Promise<string>{
+        return this.__deploy([params.token0,params.token1,this.wallet.utils.toString(params.price0),this.wallet.utils.toString(params.price1)], options);
     }
     decimals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     }
     getLatestPrice: {
-        (params: IGetLatestPriceParams): Promise<BigNumber>;
+        (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber>;
     }
     getRatio: {
-        (params: IGetRatioParams): Promise<{numerator:BigNumber,denominator:BigNumber}>;
+        (params: IGetRatioParams, options?: TransactionOptions): Promise<{numerator:BigNumber,denominator:BigNumber}>;
     }
     isSupported: {
-        (params: IIsSupportedParams): Promise<boolean>;
+        (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean>;
     }
     prices: {
-        (params: IPricesParams): Promise<BigNumber>;
+        (params: IPricesParams, options?: TransactionOptions): Promise<BigNumber>;
     }
     private assign(){
-        let decimals_call = async (): Promise<BigNumber> => {
-            let result = await this.call('decimals');
+        let decimals_call = async (options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('decimals',[],options);
             return new BigNumber(result);
         }
         this.decimals = decimals_call
-        let getLatestPriceParams = (params: IGetLatestPriceParams) => [params.from,params.to,Utils.stringToBytes(params.param3)];
-        let getLatestPrice_call = async (params: IGetLatestPriceParams): Promise<BigNumber> => {
-            let result = await this.call('getLatestPrice',getLatestPriceParams(params));
+        let getLatestPriceParams = (params: IGetLatestPriceParams) => [params.from,params.to,this.wallet.utils.stringToBytes(params.param3)];
+        let getLatestPrice_call = async (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('getLatestPrice',getLatestPriceParams(params),options);
             return new BigNumber(result);
         }
         this.getLatestPrice = getLatestPrice_call
-        let getRatioParams = (params: IGetRatioParams) => [params.from,params.to,Utils.toString(params.param3),Utils.toString(params.param4),Utils.stringToBytes(params.payload)];
-        let getRatio_call = async (params: IGetRatioParams): Promise<{numerator:BigNumber,denominator:BigNumber}> => {
-            let result = await this.call('getRatio',getRatioParams(params));
+        let getRatioParams = (params: IGetRatioParams) => [params.from,params.to,this.wallet.utils.toString(params.param3),this.wallet.utils.toString(params.param4),this.wallet.utils.stringToBytes(params.payload)];
+        let getRatio_call = async (params: IGetRatioParams, options?: TransactionOptions): Promise<{numerator:BigNumber,denominator:BigNumber}> => {
+            let result = await this.call('getRatio',getRatioParams(params),options);
             return {
                 numerator: new BigNumber(result.numerator),
                 denominator: new BigNumber(result.denominator)
@@ -51,14 +51,14 @@ export class OSWAP_OracleConstant extends Contract{
         }
         this.getRatio = getRatio_call
         let isSupportedParams = (params: IIsSupportedParams) => [params.param1,params.param2];
-        let isSupported_call = async (params: IIsSupportedParams): Promise<boolean> => {
-            let result = await this.call('isSupported',isSupportedParams(params));
+        let isSupported_call = async (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean> => {
+            let result = await this.call('isSupported',isSupportedParams(params),options);
             return result;
         }
         this.isSupported = isSupported_call
         let pricesParams = (params: IPricesParams) => [params.param1,params.param2];
-        let prices_call = async (params: IPricesParams): Promise<BigNumber> => {
-            let result = await this.call('prices',pricesParams(params));
+        let prices_call = async (params: IPricesParams, options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('prices',pricesParams(params),options);
             return new BigNumber(result);
         }
         this.prices = prices_call

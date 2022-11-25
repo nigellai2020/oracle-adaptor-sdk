@@ -1,4 +1,4 @@
-import { IWallet, Contract, BigNumber } from "@ijstech/eth-wallet";
+import { IWallet, Contract, BigNumber, TransactionOptions } from "@ijstech/eth-contract";
 export interface IDeployParams {
     tokens: string[];
     pricefeeds: string[];
@@ -21,30 +21,30 @@ export interface IIsSupportedParams {
 }
 export declare class OSWAP_OracleChainlinkFiatGeneric extends Contract {
     constructor(wallet: IWallet, address?: string);
-    deploy(params: IDeployParams): Promise<string>;
+    deploy(params: IDeployParams, options?: TransactionOptions): Promise<string>;
     WETH: {
-        (): Promise<string>;
+        (options?: TransactionOptions): Promise<string>;
     };
     chainlinkDeicmals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     };
     decimals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     };
     getLatestPrice: {
-        (params: IGetLatestPriceParams): Promise<BigNumber>;
+        (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber>;
     };
     getRatio: {
-        (params: IGetRatioParams): Promise<{
+        (params: IGetRatioParams, options?: TransactionOptions): Promise<{
             numerator: BigNumber;
             denominator: BigNumber;
         }>;
     };
     isSupported: {
-        (params: IIsSupportedParams): Promise<boolean>;
+        (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean>;
     };
     priceFeedAddresses: {
-        (param1: string): Promise<string>;
+        (param1: string, options?: TransactionOptions): Promise<string>;
     };
     private assign;
 }

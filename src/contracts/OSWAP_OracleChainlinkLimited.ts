@@ -1,4 +1,4 @@
-import {IWallet, Contract, Transaction, TransactionReceipt, Utils, BigNumber, Event, IBatchRequestObj} from "@ijstech/eth-wallet";
+import {IWallet, Contract, Transaction, TransactionReceipt, BigNumber, Event, IBatchRequestObj, TransactionOptions} from "@ijstech/eth-contract";
 import Bin from "./OSWAP_OracleChainlinkLimited.json";
 
 export interface IGetLatestPriceParams {from:string;to:string;payload:string}
@@ -9,71 +9,71 @@ export class OSWAP_OracleChainlinkLimited extends Contract{
         super(wallet, address, Bin.abi, Bin.bytecode);
         this.assign()
     }
-    deploy(factory:string): Promise<string>{
-        return this.__deploy([factory]);
+    deploy(factory:string, options?: TransactionOptions): Promise<string>{
+        return this.__deploy([factory], options);
     }
     WETH: {
-        (): Promise<string>;
+        (options?: TransactionOptions): Promise<string>;
     }
     _WETH: {
-        (): Promise<string>;
+        (options?: TransactionOptions): Promise<string>;
     }
     chainlinkDeicmals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     }
     decimals: {
-        (): Promise<BigNumber>;
+        (options?: TransactionOptions): Promise<BigNumber>;
     }
     factory: {
-        (): Promise<string>;
+        (options?: TransactionOptions): Promise<string>;
     }
     getLatestPrice: {
-        (params: IGetLatestPriceParams): Promise<BigNumber>;
+        (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber>;
     }
     getRatio: {
-        (params: IGetRatioParams): Promise<{numerator:BigNumber,denominator:BigNumber}>;
+        (params: IGetRatioParams, options?: TransactionOptions): Promise<{numerator:BigNumber,denominator:BigNumber}>;
     }
     isSupported: {
-        (params: IIsSupportedParams): Promise<boolean>;
+        (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean>;
     }
     priceFeedAddresses: {
-        (param1:string): Promise<string>;
+        (param1:string, options?: TransactionOptions): Promise<string>;
     }
     private assign(){
-        let WETH_call = async (): Promise<string> => {
-            let result = await this.call('WETH');
+        let WETH_call = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.call('WETH',[],options);
             return result;
         }
         this.WETH = WETH_call
-        let _WETH_call = async (): Promise<string> => {
-            let result = await this.call('_WETH');
+        let _WETH_call = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.call('_WETH',[],options);
             return result;
         }
         this._WETH = _WETH_call
-        let chainlinkDeicmals_call = async (): Promise<BigNumber> => {
-            let result = await this.call('chainlinkDeicmals');
+        let chainlinkDeicmals_call = async (options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('chainlinkDeicmals',[],options);
             return new BigNumber(result);
         }
         this.chainlinkDeicmals = chainlinkDeicmals_call
-        let decimals_call = async (): Promise<BigNumber> => {
-            let result = await this.call('decimals');
+        let decimals_call = async (options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('decimals',[],options);
             return new BigNumber(result);
         }
         this.decimals = decimals_call
-        let factory_call = async (): Promise<string> => {
-            let result = await this.call('factory');
+        let factory_call = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.call('factory',[],options);
             return result;
         }
         this.factory = factory_call
-        let getLatestPriceParams = (params: IGetLatestPriceParams) => [params.from,params.to,Utils.stringToBytes(params.payload)];
-        let getLatestPrice_call = async (params: IGetLatestPriceParams): Promise<BigNumber> => {
-            let result = await this.call('getLatestPrice',getLatestPriceParams(params));
+        let getLatestPriceParams = (params: IGetLatestPriceParams) => [params.from,params.to,this.wallet.utils.stringToBytes(params.payload)];
+        let getLatestPrice_call = async (params: IGetLatestPriceParams, options?: TransactionOptions): Promise<BigNumber> => {
+            let result = await this.call('getLatestPrice',getLatestPriceParams(params),options);
             return new BigNumber(result);
         }
         this.getLatestPrice = getLatestPrice_call
-        let getRatioParams = (params: IGetRatioParams) => [params.from,params.to,Utils.toString(params.fromAmount),Utils.toString(params.toAmount),Utils.stringToBytes(params.payload)];
-        let getRatio_call = async (params: IGetRatioParams): Promise<{numerator:BigNumber,denominator:BigNumber}> => {
-            let result = await this.call('getRatio',getRatioParams(params));
+        let getRatioParams = (params: IGetRatioParams) => [params.from,params.to,this.wallet.utils.toString(params.fromAmount),this.wallet.utils.toString(params.toAmount),this.wallet.utils.stringToBytes(params.payload)];
+        let getRatio_call = async (params: IGetRatioParams, options?: TransactionOptions): Promise<{numerator:BigNumber,denominator:BigNumber}> => {
+            let result = await this.call('getRatio',getRatioParams(params),options);
             return {
                 numerator: new BigNumber(result.numerator),
                 denominator: new BigNumber(result.denominator)
@@ -81,13 +81,13 @@ export class OSWAP_OracleChainlinkLimited extends Contract{
         }
         this.getRatio = getRatio_call
         let isSupportedParams = (params: IIsSupportedParams) => [params.from,params.to];
-        let isSupported_call = async (params: IIsSupportedParams): Promise<boolean> => {
-            let result = await this.call('isSupported',isSupportedParams(params));
+        let isSupported_call = async (params: IIsSupportedParams, options?: TransactionOptions): Promise<boolean> => {
+            let result = await this.call('isSupported',isSupportedParams(params),options);
             return result;
         }
         this.isSupported = isSupported_call
-        let priceFeedAddresses_call = async (param1:string): Promise<string> => {
-            let result = await this.call('priceFeedAddresses',[param1]);
+        let priceFeedAddresses_call = async (param1:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.call('priceFeedAddresses',[param1],options);
             return result;
         }
         this.priceFeedAddresses = priceFeedAddresses_call

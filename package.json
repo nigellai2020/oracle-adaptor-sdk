@@ -2,7 +2,8 @@
   "name": "@openswap/oracle-adaptor-sdk",
   "version": "0.1.3",
   "description": "",
-  "typings": "types/index.d.ts",
+  "plugin": "dist/index.js",
+  "types": "types/index.d.ts",
   "main": "lib",
   "scripts": {
     "build": "npm run build:contracts && npm run build:lib && npm run build:dist",
